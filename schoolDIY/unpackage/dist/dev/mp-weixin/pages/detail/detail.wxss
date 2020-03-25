@@ -1,0 +1,35 @@
+.wrap {
+  padding-bottom: 118rpx;
+}
+.footer {
+  box-sizing: border-box;
+  padding: 0 16rpx;
+  width: 100%;
+  height: 118rpx;
+  background-color: #ffffff;
+  box-shadow: 0 0 20rpx #f2f2f2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+}
+.footer .btn {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  margin: 0 16rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  border-radius: 40rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+

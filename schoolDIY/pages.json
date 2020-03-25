@@ -1,0 +1,140 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/start/start",
+			"style": {}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		}, {
+			"path": "pages/albumList/albumList",
+			"style": {
+				"navigationBarTitleText": "全部相册",
+				"enablePullDownRefresh": true
+			}
+		}, {
+			"path": "pages/studentAdd/studentAdd",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/templateList/templateList",
+			"style": {
+				"navigationBarTitleText": "选择模板"
+			}
+		}, {
+			"path": "pages/edit/edit",
+			"style": {
+				"navigationBarTitleText": "编辑",
+				"disableScroll": true
+			}
+		}, {
+			"path": "pages/changeWords/changeWords",
+			"style": {
+				"navigationBarTitleText": "修改文字"
+			}
+		}, {
+			"path": "pages/detail/detail",
+			"style": {
+				"navigationBarTitleText": "查看"
+			}
+		}, {
+			"path": "pages/teacherAdd/teacherAdd",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/index/index",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/share/share",
+			"style": {
+				"navigationBarTitleText": "分享",
+				"usingComponents": {
+					"painter": "/wxcomponents/painter/painter"
+				}
+			}
+		}, {
+			"path": "pages/shareAuth/shareAuth",
+			"style": {
+				"navigationBarTitleText": "分享",
+				"usingComponents": {
+					"painter": "/wxcomponents/painter/painter"
+				}
+			}
+		}, {
+			"path": "pages/studentPhotoList/studentPhotoList",
+			"style": {
+				"navigationBarTitleText": "同学个人版"
+			}
+		}, {
+			"path": "pages/teacherPhotoList/teacherPhotoList",
+			"style": {
+				"navigationBarTitleText": "老师祝福版"
+			}
+		}, {
+			"path": "pages/addCover/addCover",
+			"style": {
+				"navigationBarTitleText": "封面情怀版"
+			}
+		}, {
+			"path": "pages/addCampus/addCampus",
+			"style": {
+				"navigationBarTitleText": "母校一角版"
+			}
+		}, {
+			"path": "pages/addClassroom/addClassroom",
+			"style": {
+				"navigationBarTitleText": "精彩课堂版"
+			}
+		}, {
+			"path": "pages/addOriginality/addOriginality",
+			"style": {
+				"navigationBarTitleText": "多图创意版"
+			}
+		}, {
+			"path": "pages/addHoliday/addHoliday",
+			"style": {
+				"navigationBarTitleText": "节日祝福版"
+			}
+		}, {
+			"path": "pages/holidayEdit/holidayEdit",
+			"style": {
+				"navigationBarTitleText": "编辑"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "校园DIY",
+		"backgroundColor": "#f9f9f9",
+		"backgroundColorTop": "#f9f9f9",
+		"backgroundColorBottom": "#f9f9f9"
+	},
+	"condition": {
+		"current": 0,
+		"list": [{
+			"name": "0登录页",
+			"path": "pages/login/login"
+		}, {
+			"name": "1家委首页",
+			"path": "pages/index/index"
+		}, {
+			"name": "2封面情怀版",
+			"path": "pages/addCover/addCover"
+		}, {
+			"name": "3学生填写资料",
+			"path": "pages/studentAdd/studentAdd"
+		}, {
+			"name": "4节日祝福",
+			"path": "pages/addHoliday/addHoliday",
+			"query": "id=1"
+		}]
+	}
+}

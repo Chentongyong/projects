@@ -1,0 +1,34 @@
+<view class="big_box">
+  <view class="title_inp_box">
+    <input class="title_inp" bindblur="title_inp" placeholder="请输入标题"></input>
+  </view>
+  <view class="txt_box">
+    <textarea class="weui-textarea" bindinput="txt_inp" maxlength="200" placeholder="这一刻的想法..."></textarea>
+
+  </view>
+
+  <view class="upload_box">
+    <view class="content">
+      <view wx:for="{{imgs_url}}" class="img" wx:key="{{index}}">
+        <image src="{{item}}" bindtap="previewImg" data-index="{{index}}" mode="aspectFill"></image>
+        <view class="del" bindtap="del" data-index="{{index}}">删除</view>
+      </view>
+    </view>
+    <!-- 上传凭证 -->
+    <view class="upload_img" hidden="{{imgs_url.length ==9}}">
+      <view class="upload" bindtap="addImage">
+        <view class="add">
+          <image src="/static/icons/jia.png" mode="aspectFit"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <navigator open-type="switchTab" url="/pages/chat/chat">
+    <image class="kefu" src="/static/icons/contact.png"></image>
+  </navigator>
+
+
+  <view class="issue" bindtap="issue" wx:if="{{issue == false}}">发布</view>
+  <view class="issue" wx:if="{{issue == true}}">发布</view>
+</view>

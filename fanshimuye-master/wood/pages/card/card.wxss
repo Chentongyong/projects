@@ -1,0 +1,49 @@
+.box{
+  width: 670rpx;
+  height: 108rpx;
+  margin: 0 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #333333;
+  border-bottom: 1rpx solid #ebebeb;
+}
+.box_inp{
+  /* direction: rtl; */
+  text-align: right
+}
+.box-icon{
+  margin-left: 17rpx; 
+  width: 13rpx;
+  height: 22rpx;
+}
+.box-sent{
+  display: flex;
+  align-items: center;
+}
+.site{
+  padding-bottom: 40rpx;
+}
+.affirm{
+  margin: 180rpx 40rpx 0;
+  width: 670rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #fff;
+}
+.contact-fixed{
+  position: fixed;
+right: 24rpx;
+bottom: 204rpx;
+width: 94rpx;
+height: 94rpx;
+display: block;
+z-index: 98;
+
+}

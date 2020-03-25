@@ -1,0 +1,39 @@
+<view class="big_box">
+    <view class="title_box">
+        <image class="title_img" src="{{data.headimg}}"></image>
+        <view>
+            <view>{{data.nickname}}</view>
+            <view class="activity">
+                <navigator url="/pages/source/source" class="activity_hont">
+                    <text>{{data.score}}积分</text>
+                    <image class="min_icon" src="/static/icons/arrow_gery.png"></image>
+                </navigator>
+            </view>
+        </view>
+    </view>
+
+    <view class="explain_box">
+        <view class="explain">晒单说明</view>
+        <view style="margin-bottom:60rpx">
+            <!-- <view class="explain_hont">1、确认收货后发布30字+2张以上晒单图，可获得无门槛优惠券</view>
+            <view class="explain_hont">2、以上奖励会放入“我的-我的优惠券”，有效期为发放之日起30天内</view>
+            <view class="explain_hont" style="margin-bottom:60rpx">3、同一商品在同一平台仅可获得一次晒单返券奖励，特殊商品不享受站外平台爱返券见奖励</view> -->
+            <rich-text nodes="{{nodes}}"></rich-text>
+        </view>
+        <navigator url="/pages/myFlaunt/myFlaunt" class="explain_want">我要晒单</navigator>
+    </view>
+
+    <view class="explain_record_box">
+        <view class="explain">晒单记录</view>
+        <navigator hover-class url="/pages/article/article?id={{item.id}}" class="explain_record" wx:for="{{list}}" >
+            <view class="explain_record_title">{{item.title}}</view>
+            <view class="explain_record_time">{{item.create_at}}</view>
+            <view class="content">
+                <view wx:for="{{item.imgs_url}}" class="img" wx:key="{{index}}">
+                    <image src="{{item}}" bindtap="previewImg" data-index="{{index}}" mode="aspectFill"></image>
+                </view>
+            </view>
+        </navigator>
+    </view>
+
+</view>

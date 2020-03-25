@@ -1,0 +1,5 @@
+<!--pages/blank/blank.wxml-->
+<view class="blank">
+    <image mode="widthFix" src="../../static/icons/blank.png" class="blank-icon"></image>
+    <view class="blank_tips">功能正在开发中 ~</view>
+</view>

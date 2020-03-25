@@ -1,0 +1,29 @@
+.big_box{
+    padding: 0 40rpx;
+    box-sizing: border-box;
+}
+.record{
+    padding: 40rpx 0;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #ebebeb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title{
+    font-size: 28rpx;
+    color: #333;
+    margin-bottom:30rpx; 
+}
+.time{
+    font-size: 24rpx;
+    color: #999;
+}
+.num{
+    font-size: 36rpx;
+    color: #F36449;
+}
+.title_box{
+  width: 520rpx;
+
+}

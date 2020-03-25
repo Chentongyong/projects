@@ -1,0 +1,12 @@
+<!--pages/msgDetail/msgDetail.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="msgDetail">
+    <view class="title">{{detail.title}}</view>
+    <view class="detail">
+        <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+    </view>
+    <view class="time">{{detail.create_at}}</view>
+</view>
+<navigator hover-class="noHover" class="contact-fixed" url="/pages/chat/chat" open-type="switchTab">
+    <image mode="aspectFit" src="../../static/icons/contact.png" class="contact-icon"></image>
+</navigator>

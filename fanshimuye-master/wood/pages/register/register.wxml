@@ -1,0 +1,71 @@
+<!--pages/register/register.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<form class="formBox" bindsubmit="formSubmit">
+    <view class="login_title">新用户注册</view>
+    <view class="from_list">
+        <view class="form_cell">
+            <input type="number" placeholder="请输入手机号" name="phone" maxlength="11" bindinput="bindphone" />
+        </view>
+        <view class="form_cell">
+            <input type="text" placeholder="请输入验证码" name="code" />
+            <view class="getCode {{codeDisabled ? 'unable' : ''}}" data-disabled="{{codeDisabled}}" bindtap="getCode">{{codeTips}}</view>
+        </view>
+        <view class="form_cell">
+            <input type="text" placeholder="请输入姓名" name="name" />
+        </view>
+        <view class="form_cell">
+            <picker mode="selector" range="{{proviceData}}" range-key="areaName" value="{{index}}" bindchange="bindProvice">
+                <view class="cell">
+                    <view class="ipt a_row" wx:if="{{provice}}">{{provice}}</view>
+                    <view class="ipt plc" wx:else>省</view>
+                    <image mode="aspectFill" src="../../static/icons/arrow_gery.png" class="arrow"></image>
+                </view>
+            </picker>
+            <picker mode="selector" range="{{cityData}}" range-key="areaName" value="{{index}}" bindchange="bindCity" disabled="{{cityData.length < 1}}">
+                <view class="cell">
+                    <view class="ipt a_row" wx:if="{{city}}">{{city}}</view>
+                    <view class="ipt plc" wx:else>市</view>
+                    <image mode="aspectFill" src="../../static/icons/arrow_gery.png" class="arrow"></image>
+                </view>
+            </picker>
+            <picker mode="selector" range="{{areaData}}" range-key="areaName" value="{{index}}" bindchange="bindArea" disabled="{{areaData.length < 1}}">
+                <view class="cell">
+                    <view class="ipt a_row" wx:if="{{area}}">{{area}}</view>
+                    <view class="ipt plc" wx:else>区</view>
+                    <image mode="aspectFill" src="../../static/icons/arrow_gery.png" class="arrow"></image>
+                </view>
+            </picker>
+        </view>
+        <view class="form_cell">
+            <input type="text" placeholder="请输入所在市场名称" name="market" />
+        </view>
+    </view>
+    <view class="deal_box" bindtap="chooseDeal">
+        <image mode="aspectFill" src="{{isCheck ? '../../static/icons/checked.png' : '../../static/icons/check.png'}}" class="check"></image>
+        <view class="deal_tips">我已阅读声明并接受<text catchtap="openDeal">《注册协议》</text></view>
+    </view>
+    <button formType="submit" class="submit" hover-class="noHover" disabled="{{disabled}}">注册</button>
+    <navigator open-type="navigateBack" delta="1" hover-class="noHover" class="btn"><text class="gery">已有账号，</text>直接登录</navigator>
+</form>
+<!-- 提交审核弹窗 -->
+<view class="check_pop" wx:if="{{showTips}}">
+    <view class="check_content">
+        <image mode="aspectFill" src="../../static/icons/check_post.png" class="check_icon"></image>
+        <view class="check_tips">提交成功</view>
+        <view class="check_desc">已提交待审核中，请耐心等待</view>
+        <navigator open-type="navigateBack" delta="1" hover-class="noHover" class="check_btn">我知道了</navigator>
+    </view>
+</view>
+<!-- 注册协议 -->
+<view class="deal_pop" wx:if="{{showDeal}}">
+    <view class="deal_content">
+        <view class="deal_title">注册协议及隐私政策</view>
+        <view class="content">
+            <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+        </view>
+        <view class="options_box">
+            <button class="option_btn white" hover-class="noHover" bindtap="cancel">不同意</button>
+            <button class="option_btn black" hover-class="noHover" bindtap="confirm">同意</button>
+        </view>
+    </view>
+</view>

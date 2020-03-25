@@ -1,0 +1,150 @@
+.wrap {
+  padding-bottom: 118rpx;
+}
+.canvas {
+  position: fixed;
+  left: 110%;
+  top: 110%;
+}
+.content {
+  overflow: hidden;
+}
+.content .box {
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+.content .box .temp {
+  display: block;
+  width: 100%;
+}
+.content .box .image_box {
+  background-color: #dbdbdb;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.content .box .image_box .image {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.content .box .image_box .image image {
+  width: 100%;
+  height: 100%;
+}
+.content .box .image_box .inter_box {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.content .box .tap_box {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+.content .box .word {
+  line-height: 1.8;
+  position: absolute;
+  z-index: 20;
+}
+.content .box .word::after {
+  content: '';
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.content .box .word.border::after {
+  border: 1px solid #000000;
+}
+.footer {
+  box-sizing: border-box;
+  padding: 0 10rpx;
+  width: 100%;
+  height: 118rpx;
+  background-color: #ffffff;
+  box-shadow: 0 0 20rpx #f2f2f2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+}
+.footer .btn {
+  width: 264rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  border: 1rpx solid #ff3a51;
+  border-radius: 40rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+#operation {
+  width: 96rpx;
+  background-color: #d3d3d3;
+  border: 2rpx solid #fff;
+  border-radius: 10rpx;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+#operation .btn {
+  width: 96rpx;
+  height: 96rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+#operation image {
+  display: block;
+  width: 80rpx;
+  height: 80rpx;
+}
+#operation::before {
+  content: '';
+  width: 72rpx;
+  height: 0;
+  border-bottom: 2rpx solid #fff;
+  position: absolute;
+  top: 33.33%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+#operation::after {
+  content: '';
+  width: 72rpx;
+  height: 0;
+  border-bottom: 2rpx solid #fff;
+  position: absolute;
+  top: 66.66%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+

@@ -1,0 +1,94 @@
+/* pages/checkLogistic/checkLogistic.wxss */
+
+.order_status {
+    padding: 40rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+}
+
+.order_status .left_data {
+    flex: 1;
+    overflow: hidden;
+}
+
+.order_status .left_data .big_status {
+    font-size: 30rpx;
+    color: #fff;
+    font-weight: bold;
+}
+
+.order_status .left_data .small_tips {
+    font-size: 26rpx;
+    color: #fff;
+    padding-top: 15rpx;
+}
+
+.order_status .status_icon {
+    width: 100rpx;
+    height: 100rpx;
+    display: block;
+}
+
+.logistics {
+    padding: 30rpx 40rpx;
+    min-height: 480rpx;
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+.logistics .title {
+    padding-bottom: 30rpx;
+    font-size: 30rpx;
+    color: #333;
+    font-weight: bold;
+}
+
+.logistics::before {
+    content: "";
+    width: 0;
+    height: 100%;
+    border-left: 1px solid #E0E1E9;
+    position: absolute;
+    left: 57rpx;
+    top: 120rpx;
+}
+
+.logistics .cell {
+    margin-bottom: 30rpx;
+    padding-left: 60rpx;
+    position: relative;
+}
+
+.logistics .cell::before {
+    content: "";
+    width: 22rpx;
+    height: 22rpx;
+    background-color: #d5d4d9;
+    border-radius: 50%;
+    position: absolute;
+    left: 7rpx;
+    top: 10rpx;
+}
+
+.logistics .cell:nth-child(2) .info {
+    color: #313139;
+}
+
+.logistics .cell:nth-child(2)::before {
+    background-color: #333333 !important;
+    box-shadow: 0 0 0 6rpx rgba(51, 51, 51, .3);
+}
+
+.logistics .info {
+    font-size: 28rpx;
+    color: #a4a5b0;
+}
+
+.logistics .time {
+    margin-top: 10rpx;
+    font-size: 28rpx;
+    color: #b8b8c3;
+}

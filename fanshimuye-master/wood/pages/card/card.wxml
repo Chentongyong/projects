@@ -1,0 +1,78 @@
+<view>
+  <view class="box">
+    <view>店铺名称</view>
+    <input class="box_inp" value="{{business.store_name}}" placeholder="请输入店铺名称" bindblur="store_name"></input>
+  </view>
+
+  <view class="box">
+    <view>姓名</view>
+    <input class="box_inp" value="{{business.name}}" placeholder="请输入姓名" bindblur="name"></input>
+  </view>
+
+  <view class="box">
+    <view>联系方式</view>
+    <input class="box_inp" value="{{business.phone}}" placeholder="请输入联系方式" bindblur="phone"></input>
+  </view>
+
+  <view class="box">
+    <view>微信</view>
+    <input class="box_inp" value="{{business.wechat}}" placeholder="请输入微信号" bindblur="wechat"></input>
+  </view>
+
+  <view class="box">
+    <view>营业时间</view>
+    <view class="box-sent">
+      <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+        <view class="picker" wx:if="{{time!=''}}">
+          {{time}}
+        </view>
+        <view wx:if="{{time==''}}">
+          请选择营业时间
+        </view>
+      </picker>
+      <image class="box-icon" src="/static/icons/arrow_gery.png"></image>
+    </view>
+  </view>
+
+  <view class="box">
+    <view>打烊时间</view>
+    <view class="box-sent">
+      <picker mode="time" value="{{time_end}}" start="00:00" end="23:59" bindchange="bindTimeChange_end">
+        <view class="picker" wx:if="{{time_end!=''}}">
+          {{time_end}}
+        </view>
+        <view wx:if="{{time_end==''}}">
+          请选择打烊时间
+        </view>
+      </picker>
+      <image class="box-icon" src="/static/icons/arrow_gery.png"></image>
+    </view>
+  </view>
+
+  <view class="box">
+    <view>所在地区</view>
+
+    <view class="box-sent">
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="picker" wx:if="{{region!=''}}">
+          {{region[0]}}，{{region[1]}}，{{region[2]}}
+        </view>
+        <view class="picker" wx:if="{{region==''}}">
+          请选择省、市、区
+        </view>
+      </picker>
+      <image class="box-icon" src="/static/icons/arrow_gery.png"></image>
+    </view>
+  </view>
+
+  <view class="box site" >
+    <view>店铺地址</view>
+    <input class="box_inp" value="{{business.address}}" placeholder="请输入详细地址" style="width: 500rpx;" bindblur="address"></input>
+  </view>
+
+  <view class="affirm" bindtap="affirm">保存</view>
+
+  <navigator hover-class="noHover" class="contact-fixed" url="/pages/chat/chat" open-type="switchTab">
+        <image mode="aspectFit" src="../../static/icons/contact.png" class="contact-icon"></image>
+    </navigator>
+</view>

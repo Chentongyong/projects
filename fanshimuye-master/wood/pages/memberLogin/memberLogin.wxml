@@ -1,0 +1,15 @@
+<!--pages/memberLogin/memberLogin.wxml-->
+<form class="formBox" bindsubmit="formSubmit">
+    <view class="login_title">手机登录</view>
+    <view class="from_list">
+        <view class="form_cell">
+            <input type="number" placeholder="请输入手机号" name="phone" maxlength="11" bindinput="bindphone" />
+        </view>
+        <view class="form_cell">
+            <input type="text" placeholder="请输入验证码" bindinput="text" value="{{text}}" name="code" />
+            <view class="getCode {{codeDisabled ? 'unable' : ''}}" data-disabled="{{codeDisabled}}" bindtap="getCode">{{codeTips}}</view>
+        </view>
+    </view>
+    <button formType="submit" class="submit" hover-class="noHover" disabled="{{disabled}}">登录</button>
+    <navigator url="/pages/register/register" hover-class="noHover" class="btn">新用户注册</navigator>
+</form>

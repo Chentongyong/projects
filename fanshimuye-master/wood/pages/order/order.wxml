@@ -1,0 +1,93 @@
+<!--pages/order/order.wxml-->
+<view class="order">
+  <view class="tabList">
+    <view bindtap="chooseStatus" class="tabCell {{status == item.status ? 'active' : ''}}" wx:for="{{tabList}}" wx:key="{{index}}" data-status="{{item.status}}" data-type="{{item.type}}">
+      {{item.name}}
+    </view>
+  </view>
+  <view class="list">
+    <view class="list_cell" wx:for="{{list}}" wx:key="{{index}}">
+      <view class="order_code">
+        <view class="code">订单号
+          <text class="code_number">{{item.order_no}}</text>
+        </view>
+        <view class="status" wx:if="{{item.status == 1}}">待付款</view>
+        <view class="status" wx:elif="{{item.status == 2}}">待发货</view>
+        <view class="status" wx:elif="{{item.status == 5}}">待自提</view>
+        <view class="status" wx:elif="{{item.status == 3}}">待收货</view>
+        <view class="status" wx:elif="{{item.status == 4}}">已完成</view>
+        <view class="status" wx:elif="{{item.status == 6}}">拼团中</view>
+        <view class="status" wx:else="{{item.status == -1}}">已取消</view>
+      </view>
+      <navigator url="/pages/orderDetail/orderDetail?id={{item.id}}" hover-class="noHover" class="goods_box">
+        <view class="goods_msg" wx:for="{{item.goods}}" wx:key="{{index}}">
+          <image mode="aspectFill" src="{{item.spec_img || 'https://dummyimage.com/165/f0f0f0/f0f0f0.png'}}" class="goods_thumb"></image>
+          <view class="goods_data">
+            <view class="goods_top">
+              <view class="goods_title a_row">
+                <view wx:if="{{item.status == 6}}" class="tuan">5人团</view>
+                <view>{{item.title}}</view>
+              </view>
+              <view class="goods_time">{{item.spec_name}}</view>
+            </view>
+
+            <view class="goods_price">
+              <text>￥{{item.price * item.num}}</text>
+              <text style="font-size:28rpx;color:#999;">×{{item.num}}</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+      <view class="order_options">
+        <navigator class="btn white" url="/pages/orderDetail/orderDetail?id={{item.id}}" hover-class="noHover">
+          查看订单
+        </navigator>
+        <button class="btn black" hover-class="noHover" bindtap="pay" wx:if="{{item.status == 1 && item.pay_type == 1}}" id="{{item.id}}" data-index="{{index}}">立即付款</button>
+        <button class="btn black" hover-class="noHover" bindtap="pay_tow" wx:if="{{item.status == 1 && item.pay_type == 3}}" id="{{item.id}}" data-index="{{index}}">立即付款</button>
+
+        <button class="btn black" hover-class="noHover" bindtap="confirmGoods" wx:if="{{item.status == 3}}" id="{{item.id}}" data-index="{{index}}">确认收货</button>
+        <navigator class="btn black" url="/pages/orderDetail/orderDetail?id={{item.id}}" wx:if="{{item.status == 6}}" hover-class="noHover">
+          邀请好友
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="loading" wx:if="{{loading}}">
+  <image mode="aspectFit" src="../../static/icons/loading.gif"></image>
+</view>
+<view class="noMore" wx:if="{{!isload}}">暂无更多</view>
+<navigator hover-class="noHover" class="contact-fixed" url="/pages/chat/chat" open-type="switchTab">
+  <image mode="aspectFit" src="../../static/icons/contact.png" class="contact-icon"></image>
+</navigator>
+
+
+<view class="anmu-ds" wx:if="{{balance}}"></view>
+
+<view class="anmu_box" wx:if="{{balance}}">
+  <input class="ing" focus bindinput="ing" maxlength="6" wx:if="{{balance}}" type="number"></input>
+  <image class="anmu-close" src="/static/icons/close.png" catchtap="bing_tas" wx:if="{{balance}}"></image>
+  <view class="anmu-title">请输入支付密码</view>
+  <view class="money">￥{{account}}</view>
+  <view class="password">
+    <view class="password_hont">
+      <view class="password_hide" wx:if="{{ingPass.length >= 1}}"></view>
+    </view>
+    <view class="password_hont">
+      <view class="password_hide" wx:if="{{ingPass.length >= 2}}"></view>
+    </view>
+    <view class="password_hont">
+      <view class="password_hide" wx:if="{{ingPass.length >= 3}}"></view>
+    </view>
+    <view class="password_hont">
+      <view class="password_hide" wx:if="{{ingPass.length >= 4}}"></view>
+    </view>
+    <view class="password_hont">
+      <view class="password_hide" wx:if="{{ingPass.length >= 5}}"></view>
+    </view>
+    <view class="password_hont" style="border:0;">
+      <view class="password_hide" wx:if="{{ingPass.length >= 6}}"></view>
+    </view>
+    <view class="confirm" bindtap="confirm_password" wx:if="{{balance}}">确定</view>
+  </view>
+</view>

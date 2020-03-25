@@ -1,0 +1,69 @@
+<view class="big-box">
+    <view class="banner-box" wx:if="{{tab == 0}}">
+        <image class="banner" src="{{img}}"></image>
+        <view class="low-price">
+            <text class="tokutai">拼团享低价</text>
+            <view class="come_out">
+                <view class="across"></view>
+                <text style="margin:0 15rpx;">好价拼出来</text>
+                <view class="across"></view>
+            </view>
+            <text class="time-limit">限时优惠 先到先得</text>
+        </view>
+    </view>
+
+    <view class="banner-box" wx:if="{{tab == 1}}">
+        <image class="banner" src="{{img}}"></image>
+    </view>
+    <view wx:if="{{tab==0}}">
+        <view class="netsu">拼团热区</view>
+
+
+        <view class="goods_list">
+            <navigator url="{{'/pages/goodsDetail/goodsDetail?id='+item.id+'&type='+4}}" hover-class="noHover" class="goods_cell" wx:for="{{list}}" wx:key="{{index}}">
+                <image mode="aspectFit" src="{{item.logo}}" class="goods_thumb"></image>
+                <view class="goods_title a_row">{{item.title}}</view>
+                <view class="price">￥{{item.spell_price}}</view>
+                <view class="sales">{{item.price}}</view>
+            </navigator>
+        </view>
+    </view>
+
+
+    <view class="tab_box" wx:if="{{tab == 1}}">
+        <view class="tab_hont {{tab_aeo == 0?'tab_hont_al':''}}" data-tab="0" bindtap="stanto">正在疯抢</view>
+        <view class="tab_hont {{tab_aeo == 1?'tab_hont_al':''}}" data-tab="1" bindtap="stanto">即将开始</view>
+    </view>
+
+    <view class="time_limit" wx:if="{{tab == 1}}">
+        <view class="count_down_box">
+            <view class="residue-hont">限时秒杀</view>
+            <view class="count_down">
+                <view class="time_box">{{time.hour}}</view>
+                <view style="height:40rpx;">:</view>
+                <view class="time_box">{{time.minue}}</view>
+                <view style="height:40rpx;">:</view>
+                <view class="time_box">{{time.sec}}</view>
+            </view>
+        </view>
+
+        <view class="goods_list">
+            <navigator url="{{'/pages/goodsDetail/goodsDetail?id='+item.id+'&type='+3+'&seckill_id='+seckill_id}}" hover-class="noHover" class="goods_cell" wx:for="{{list}}" wx:key="{{index}}">
+                <image mode="aspectFit" src="{{item.logo}}" class="goods_thumb"></image>
+                <view class="goods_title a_row">{{item.title}}</view>
+                <view class="price">￥{{item.seckill_price}}</view>
+            </navigator>
+        </view>
+    </view>
+
+    <view class="tab">
+        <view class="tab-in" data-type="0" bindtap="tab_0">
+            <image class="imgs-i" src="/static/icons/index_01.png"></image>
+            <view style="{{tab!=0?'color:#BEBEBE':''}}">拼团热区</view>
+        </view>
+        <view class="tab-in" data-type="1" bindtap="tab_0">
+            <image class="imgs-i" src="/static/icons/index_05.png"></image>
+            <view style="{{tab!=1?'color:#BEBEBE':''}}">限时秒杀</view>
+        </view>
+    </view>
+</view>

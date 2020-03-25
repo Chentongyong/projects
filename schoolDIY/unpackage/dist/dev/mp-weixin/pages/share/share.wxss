@@ -1,0 +1,82 @@
+.wrap {
+  background-color: #ffffff;
+  position: relative;
+  z-index: 0;
+}
+.bg {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.tab_box {
+  margin: 115rpx auto;
+  width: 552rpx;
+  height: 592rpx;
+  background-color: #ffffff;
+  border-radius: 50rpx;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+.tab {
+  height: 88rpx;
+  background-color: #fff4f4;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.tab_item {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 26rpx;
+  overflow: hidden;
+}
+.tab_content {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.qrcode {
+  width: 380rpx;
+  height: 380rpx;
+  border: 1px solid #ff3a51;
+  border-radius: 30rpx;
+}
+.btn_block {
+  margin: 260rpx 150rpx 0;
+  border-radius: 40rpx;
+}
+.btn {
+  margin: 20rpx auto;
+  padding: 20rpx 0;
+  width: 140rpx;
+  font-size: 30rpx;
+  text-align: center;
+}
+.painter {
+  position: fixed;
+  left: 100%;
+  top: 100%;
+}
+

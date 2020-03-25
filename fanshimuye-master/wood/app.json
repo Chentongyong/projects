@@ -1,0 +1,111 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/classify/classify",
+    "pages/chat/chat",
+    "pages/mine/mine",
+    "pages/search/search",
+    "pages/goodsDetail/goodsDetail",
+    "pages/outline/outline",
+    "pages/confirmOrder/confirmOrder",
+    "pages/payRule/payRule",
+    "pages/list/list",
+    "pages/msgCenter/msgCenter",
+    "pages/msgDetail/msgDetail",
+    "pages/order/order",
+    "pages/orderDetail/orderDetail",
+    "pages/postOrder/postOrder",
+    "pages/checkLogistic/checkLogistic",
+    "pages/sale_order/sale_order",
+    "pages/mine_data/mine_data",
+    "pages/address/address",
+    "pages/collect/collect",
+    "pages/addAddress/addAddress",
+    "pages/store_address/store_address",
+    "pages/cart/cart",
+    "pages/blank/blank",
+    "pages/login/login",
+    "pages/forbidden/forbidden",
+    "pages/memberLogin/memberLogin",
+    "pages/register/register",
+    "pages/group/group",
+    "pages/invite/invite",
+    "pages/password/password",
+    "pages/discover/discover",
+    "pages/article/article",
+    "pages/issue/issue",
+    "pages/introduce/introduce",
+    "pages/myShop/myShop",
+    "pages/flaunt/flaunt",
+    "pages/myFlaunt/myFlaunt",
+    "pages/source/source",
+    "pages/commodity/commodity",
+    "pages/poster/poster",
+    "pages/wallet/wallet",
+    "pages/withdraw/withdraw",
+    "pages/card/card",
+    "pages/orderForm/orderForm",
+    "pages/examine/examine",
+    "pages/message/message",
+    "pages/audit/audit",
+    "pages/myOrder/myOrder"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "subpackages": [
+    {
+      "root": "packageA",
+      "name": "pack2",
+      "pages": [
+        "pages/groupChatRoom/groupChatRoom"
+      ],
+      "independent": true
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#F2F2F4",
+    "navigationBarTitleText": "凡是木业",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/menu/index.png",
+        "selectedIconPath": "static/menu/index_select.png"
+      },
+      {
+        "pagePath": "pages/discover/discover",
+        "text": "发现",
+        "iconPath": "static/menu/discover@2x.png",
+        "selectedIconPath": "static/menu/discover_pre@2x.png"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "text": "全品类",
+        "iconPath": "static/menu/classify.png",
+        "selectedIconPath": "static/menu/classify_select.png"
+      },
+      {
+        "pagePath": "pages/chat/chat",
+        "text": "聊天",
+        "iconPath": "static/menu/chat.png",
+        "selectedIconPath": "static/menu/chat_select.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "static/menu/mine.png",
+        "selectedIconPath": "static/menu/mine_select.png"
+      }
+    ],
+    "selectedColor": "#333333",
+    "color": "#a7a7a7"
+  }
+}

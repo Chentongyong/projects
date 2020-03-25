@@ -1,0 +1,32 @@
+<view>
+  <view class="money_box">
+    <view class="money_title">总额（元）</view>
+    <view class="money_hont">{{data.money}}</view>
+    <navigator url="/pages/withdraw/withdraw" hover-class class="money_caoz" >立即提现</navigator>
+  </view>
+
+  <view class="tab_box">
+    <view class="tab_tonh {{tab_tonh == 0?'tab_htnd':''}}" data-type="0" bindtap="tab_tonh">来源记录</view>
+    <view class="tab_tonh {{tab_tonh == 1?'tab_htnd':''}}" data-type="1" bindtap="tab_tonh">提现记录</view>
+  </view>
+
+  <view class="syo_hin" wx:for="{{comeList}}" wx:if="{{tab_tonh==0}}">
+    <image class="syo_hin_img" src="{{item.headimg}}"></image>
+
+    <view class="record" >
+      <view>
+        <view class="title">{{item.nickname}}</view>
+        <view class="time">{{item.create_at}}</view>
+      </view>
+      <view class="num">+{{item.money}}</view>
+    </view>
+  </view>
+
+  <view class="records" wx:for="{{bringList}}" wx:if="{{tab_tonh==1}}">
+        <view>
+            <view class="titles">{{item.title}}</view>
+            <view class="times">{{item.action_time}}</view>
+        </view>
+        <view class="nums">+{{item.money}}</view>
+    </view>
+</view>

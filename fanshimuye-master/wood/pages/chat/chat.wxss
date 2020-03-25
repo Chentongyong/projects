@@ -1,0 +1,123 @@
+/* pages/chat/chat.wxss */
+
+.chat_list {
+    padding: 40rpx;
+}
+
+.chat_cell {
+    margin-bottom: 35rpx;
+    border-radius: 5rpx;
+    border: 1rpx solid #d6dbe2;
+    padding: 60rpx 40rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.chat_cellw{
+   margin-bottom: 35rpx;
+    padding: 0 40rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.chat_cell .chat_left {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+}
+.chat_left {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+}
+
+.chat_cell .chat_left .icon {
+    width: 70rpx;
+    height: 70rpx;
+    display: block;
+    margin-right: 30rpx;
+    padding: 12rpx 0;
+}
+
+.chat_cell .arrow {
+    width: 13rpx;
+    height: 22rpx;
+    display: block;
+}
+.arrow {
+    width: 13rpx;
+    height: 22rpx;
+    display: block;
+}
+.chat_cell .chat_left .chat_tips {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.chat_tipsw {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 130rpx;
+}
+.chat_cell .chat_left .big_tips {
+    font-size: 30rpx;
+    color: #333;
+}
+.big_tips2{
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+.chat_cell .chat_left .small_tips {
+    font-size: 24rpx;
+    color: #999;
+}
+.small_tips {
+    font-size: 24rpx;
+    color: #999;
+}
+.code_pop {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(0, 0, 0, .5);
+}
+
+.code_pop .close_bg {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    top: 0;
+}
+
+.code_pop .code_content image {
+    border-radius: 16rpx;
+    width: 394rpx;
+    height: 394rpx;
+    display: block;
+    margin: 0 auto;
+}
+
+.code_pop .code_content .code_tips {
+    text-align: center;
+    font-size: 30rpx;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 30rpx;
+}
+.box{
+  border: 1rpx solid #D6DBE2;
+  border-radius:5rpx; 
+  margin-bottom:35rpx ;
+  width: 670rpx;
+  height: 280rpx;
+
+}

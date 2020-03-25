@@ -1,0 +1,166 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class="orderDetail" wx:if="{{isShow}}">
+  <view class="order_status">
+    <view class="left_data">
+      
+      <view class="big_status" wx:if="{{status == 1}}">订单待处理</view>
+      <view class="big_status" wx:if="{{status == 2}}">订单已处理</view>
+      <view class="big_status" wx:if="{{status == -1}}">订单已取消</view>
+
+      <view class="small_tips">订单金额 ￥{{detail.goods_price}}
+        <text class="countdown" wx:if="{{status == 3 && type != 2}}">收货倒计时 {{countHour}}:{{countMinute}}:{{countSecond}}</text> </view>
+    </view>
+    <image wx:if="{{status == 1 }}" mode="aspectFill" src="../../static/icons/daichuli.png" class="status_icon"></image>
+    <image wx:if="{{status == 2 }}" mode="aspectFill" src="../../static/icons/yichuli.png" class="status_icon"></image>
+
+  </view>
+
+  
+  <view class="user_img_box" wx:if="{{status == 6}}">
+    <image class="user_img" wx:for="{{user_img}}" src="{{item}}"></image>
+  </view> 
+  <!-- <view class="address_box" wx:if="{{detail.express_type == 1}}"> -->
+  <view class="address_box">
+    <view class="address_title">收货信息</view>
+    <view class="address_data">
+      <view class="link_msg">
+        <view class="link_data">
+          <view class="link_cell">{{detail.name}}</view>
+          <view class="link_cell">{{detail.phone}}</view>
+        </view>
+        <view class="link_address">{{detail.full_address}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="goods_msg">
+    <view class="order_common_title">商品清单</view>
+    <view class="goods_box">
+      <view class="goods_data" wx:for="{{detail.goods}}" wx:key="{{index}}">
+        <image mode="aspectFill" src="{{item.spec_img || 'https://dummyimage.com/165/f0f0f0/f0f0f0.png'}}" class="goods_thumb"></image>
+        <view class="goods_other">
+          <view>
+            <view class="goods_top">
+              <view class="goods_title b_row">
+                <view>{{item.title}}</view>
+              </view>
+            </view>
+            <view class="goods_spec">{{item.spec_name}}</view>
+          </view>
+          <view class="bottom_price">
+            <view class="goods_price">￥{{item.price}}</view>
+            <view class="goods_num">x{{item.num}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 订单明细 -->
+  <view class="order_other">
+    <view class="order_common_title">订单明细</view>
+    <view class="order_other_cell">
+      <view class="other_tips">商品总额</view>
+      <view class="other_content">￥{{detail.goods_price}}</view>
+    </view>
+    <view class="order_other_cell">
+      <view class="other_tips">运费</view>
+      <view class="other_content">￥{{detail.freight_price}}</view>
+    </view>
+    <view class="order_other_cell">
+      <view class="other_tips black">实际付款</view>
+      <view class="other_content orange">￥{{detail.total_price}}</view>
+    </view>
+  </view>
+  <!-- 订单信息 -->
+  <view class="order_other">
+    <view class="order_common_title">订单信息</view>
+    <view class="order_msg">
+      <view class="other_tips">订单编号</view>
+      <view class="other_content">{{detail.order_no}}</view>
+    </view>
+    <view class="order_msg">
+      <view class="other_tips">下单时间</view>
+      <view class="other_content">{{detail.create_at}}</view>
+    </view>
+    <view class="order_msg" wx:if="{{detail.pay_time}}">
+      <view class="other_tips">付款时间</view>
+      <view class="other_content">{{detail.pay_time || ''}}</view>
+    </view>
+    <view class="order_msg" wx:if="{{status == 4}}">
+      <view class="other_tips">收货时间</view>
+      <view class="other_content">{{detail.confim_time}}</view>
+    </view>
+  </view>
+  <!-- 售后信息 -->
+  <view class="order_other" wx:if="{{type == 2}}">
+    <view class="order_common_title">售后信息</view>
+    <view class="order_msg">
+      <view class="other_tips">售后类型</view>
+      <view class="other_content" wx:if="{{refund.type == 1}}">退货退款</view>
+      <view class="other_content" wx:if="{{refund.type == 2}}">换货</view>
+    </view>
+    <view class="order_msg">
+      <view class="other_tips">售后时间</view>
+      <view class="other_content">{{refund.create_at}}</view>
+    </view>
+    <view class="order_msg" wx:if="{{status == 4}}">
+      <view class="other_tips">退款金额</view>
+      <view class="other_content">￥{{refund.price}}</view>
+    </view>
+    <view class="order_msg" wx:if="{{status == -1 && refund.cancel_time}}">
+      <view class="other_tips">取消时间</view>
+      <view class="other_content">{{refund.cancel_time || ''}}</view>
+    </view>
+    <view class="order_msg" wx:if="{{status == 4}}">
+      <view class="other_tips">退款时间</view>
+      <view class="other_content">{{refund.complete_time}}</view>
+    </view>
+  </view>
+  <!-- 自提地址 -->
+  <view class="address_box lift_address" wx:if="{{status == 5 && detail.express_type == 2}}">
+    <view class="address_title">自提地址</view>
+    <view class="address_data">
+      <view class="link_msg">
+        <view class="link_data">
+          <view class="link_cell">{{detail.store_name}}</view>
+          <view class="link_cell" bindtap="call" data-phone="{{detail.phone}}">{{detail.phone}}</view>
+        </view>
+        <view class="link_address">{{detail.full_address}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="address_box lift_address" wx:if="{{status == 3 && detail.delive_type == 2 && type != 2}}">
+    <view class="address_title">送货信息</view>
+    <view class="address_data">
+      <view class="link_msg">
+        <view class="link_data">
+          <view class="link_cell">送货人姓名: {{detail.delive_name}}</view>
+        </view>
+        <view class="link_data send_top">
+          <view class="link_cell" bindtap="call" data-phone="{{detail.delive_phone}}">送货人电话: {{detail.delive_phone}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="bottom_fixed" wx:if="{{showExecute == true}}">
+    <button wx-if='{{stype==2}}' class="btn black" hover-class="noHover" bindtap="pay"  data-id="{{item.id}}" data-goods="{{item.goods}}" data-index="{{index}}">已处理</button>
+  <!-- </view>
+  <view class="bottom_fixed" wx:if="{{showExecute == true}}"> -->
+    <button wx-if='{{stype==1}}' class="btn black" hover-class="noHover" bindtap="pay"  data-id="{{item.id}}" data-goods="{{item.goods}}" data-index="{{index}}">去付款</button>
+  </view>
+</view>
+
+<navigator hover-class="noHover" class="contact-fixed" url="/pages/chat/chat" open-type="switchTab">
+  <image mode="aspectFit" src="../../static/icons/contact.png" class="contact-icon"></image>
+</navigator>
+
+
+<!-- loading -->
+<view class="waiting" wx:if="{{!isShow && !showError}}">
+  <image mode="aspectFill" src="../../static/icons/waiting.gif"></image>
+</view>
+
+<!-- error -->
+<view class="error" wx:if="{{false}}">
+  <image mode="widthFix" src="../../static/icons/error.png"></image>
+  <view class="tips">订单不存在~</view>
+</view>

@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/start/start",
+    "pages/login/login",
+    "pages/albumList/albumList",
+    "pages/studentAdd/studentAdd",
+    "pages/templateList/templateList",
+    "pages/edit/edit",
+    "pages/changeWords/changeWords",
+    "pages/detail/detail",
+    "pages/teacherAdd/teacherAdd",
+    "pages/index/index",
+    "pages/share/share",
+    "pages/shareAuth/shareAuth",
+    "pages/studentPhotoList/studentPhotoList",
+    "pages/teacherPhotoList/teacherPhotoList",
+    "pages/addCover/addCover",
+    "pages/addCampus/addCampus",
+    "pages/addClassroom/addClassroom",
+    "pages/addOriginality/addOriginality",
+    "pages/addHoliday/addHoliday",
+    "pages/holidayEdit/holidayEdit"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "校园DIY",
+    "backgroundColor": "#f9f9f9",
+    "backgroundColorTop": "#f9f9f9",
+    "backgroundColorBottom": "#f9f9f9"
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}

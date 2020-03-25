@@ -1,0 +1,61 @@
+{
+  "description": "项目配置文件。",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "postcss": true,
+    "minified": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.9.2",
+  "appid": "wxf2dd46494f1ca198",
+  "projectname": "xiaoyuanDIY",
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": 0,
+      "list": [
+        {
+          "name": "0登录页",
+          "id": 0,
+          "pathName": "pages/login/login"
+        },
+        {
+          "name": "1家委首页",
+          "id": 1,
+          "pathName": "pages/index/index"
+        },
+        {
+          "name": "2封面情怀版",
+          "id": 2,
+          "pathName": "pages/addCover/addCover"
+        },
+        {
+          "name": "3学生填写资料",
+          "id": 3,
+          "pathName": "pages/studentAdd/studentAdd"
+        },
+        {
+          "name": "4节日祝福",
+          "query": "id=1",
+          "id": 4,
+          "pathName": "pages/addHoliday/addHoliday"
+        }
+      ]
+    }
+  }
+}

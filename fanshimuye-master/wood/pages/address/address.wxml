@@ -1,0 +1,32 @@
+<!--pages/address/address.wxml-->
+<view class="address_list">
+    <view class="address_cell" wx:for="{{list}}" wx:key="{{index}}">
+        <view class="address_data" bindtouchstart="touchS" data-index="{{index}}" bindtouchmove="touchM" bindtouchend="touchE" style="margin-left:{{item.right}}rpx">
+            <view class="link_data" bindtap="pinkAddress" data-index="{{index}}">
+                <view class="link_top">
+                    <view class="link_name">{{item.name}}</view>
+                    <view class="link_phone">{{item.phone}}</view>
+                </view>
+                <view class="link_desc">{{item.full_address}}</view>
+            </view>
+            <view class="options_box">
+                <view class="set_deafult" bindtap="setDefault" data-index="{{index}}" id="{{item.id}}">
+                    <image class="check" mode="aspectFill" src="{{item.is_default == 1 ? '../../static/icons/checked.png' : '../../static/icons/check.png'}}"></image>
+                    <view class="set_tips">默认地址</view>
+                </view>
+                <navigator url="/pages/addAddress/addAddress?type=edit&id={{item.id}}" hover-class="noHover" class="btn">编辑</navigator>
+            </view>
+        </view>
+        <view class="del_btn" style="width:{{item.width}}rpx">
+            <button class="btn red" data-index="{{index}}" id="{{item.id}}" bindtap="delItem" hover-class="noHover">删除</button>
+        </view>
+    </view>
+    <view class="loading" wx:if="{{loading}}">
+        <image mode="aspectFit" src="../../static/icons/loading.gif"></image>
+    </view>
+    <view class="noMore" wx:if="{{!isload}}">暂无更多</view>
+    <navigator class="submit" url="/pages/addAddress/addAddress" hover-class="noHover">+ 添加地址</navigator>
+</view>
+<navigator hover-class="noHover" class="contact-fixed" url="/pages/chat/chat" open-type="switchTab">
+    <image mode="aspectFit" src="../../static/icons/contact.png" class="contact-icon"></image>
+</navigator>

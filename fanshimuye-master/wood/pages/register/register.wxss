@@ -1,0 +1,209 @@
+/* pages/register/register.wxss */
+
+@import "../memberLogin/memberLogin.wxss";
+.gery {
+    color: #999; 
+}
+
+.formBox {
+    padding-top: 124rpx;
+    padding-bottom: 50rpx;
+}
+
+.from_list {
+    padding-top: 10rpx;
+}
+
+.from_list .form_cell {
+    padding-top: 60rpx;
+}
+
+.from_list .form_cell .ipt {
+    font-size: 28rpx;
+    flex: 1;
+    overflow: hidden;
+    color: #333;
+}
+
+.from_list .form_cell .plc {
+    color: #808080;
+}
+
+.arrow {
+    width: 13rpx;
+    height: 22rpx;
+    display: block;
+}
+
+.submit {
+    margin-top: 100rpx;
+}
+
+.deal_box {
+    padding-top: 30rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 24rpx;
+    color: #333;
+}
+
+.deal_box .check {
+    width: 22rpx;
+    height: 22rpx;
+    display: block;
+    margin-right: 18rpx;
+}
+
+.check_pop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.check_content {
+    background: #fff;
+    border-radius: 5rpx;
+    padding: 78rpx 40rpx 40rpx;
+    width: 460rpx;
+}
+
+.check_content .check_icon {
+    width: 110rpx;
+    height: 110rpx;
+    display: block;
+    margin: 0 auto;
+}
+
+.check_content .check_tips {
+    text-align: center;
+    font-size: 34rpx;
+    font-weight: bold;
+    padding-top: 63rpx;
+}
+
+.check_content .check_desc {
+    text-align: center;
+    font-size: 26rpx;
+    color: #999;
+    padding-top: 10rpx;
+}
+
+.check_content .check_btn {
+    display: block;
+    border-radius: 5rpx;
+    background: #333;
+    margin-top: 48rpx;
+    color: #fff;
+    text-align: center;
+    line-height: 80rpx;
+    height: 80rpx;
+    font-size: 28rpx;
+    font-weight: bold;
+}
+
+.deal_pop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deal_pop .deal_content {
+    width: 535rpx;
+    padding: 49rpx 36rpx 40rpx;
+    background: #fff;
+    border-radius: 5rpx;
+}
+
+.deal_pop .deal_content .deal_title {
+    text-align: center;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.deal_pop .deal_content .content {
+    padding-top: 20rpx;
+    margin-top: 30rpx;
+    height: 421rpx;
+    overflow-y: auto;
+    font-size: 28rpx;
+    color: #333;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.deal_pop .deal_content .content image {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.deal_pop .options_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 44rpx;
+}
+
+.deal_pop .options_box .option_btn {
+    font-size: 28rpx;
+    font-weight: bold;
+    text-align: center;
+    height: 72rpx;
+    line-height: 72rpx;
+    border-radius: 5rpx;
+    display: block;
+    box-sizing: border-box;
+    width: 234rpx;
+}
+
+.deal_pop .options_box .white {
+    color: #999;
+    border: 1rpx solid #999;
+}
+
+.deal_pop .options_box .black {
+    color: #fff;
+    background: #333;
+}
+
+.cell {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cell .ipt {
+    flex: 1;
+    overflow: hidden;
+}
+
+.cell .arrow {
+    transform: rotate(90deg);
+    margin-right: 30rpx;
+}
+
+picker {
+    flex: 1;
+    overflow: hidden;
+}

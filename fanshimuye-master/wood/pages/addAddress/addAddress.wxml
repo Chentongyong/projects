@@ -1,0 +1,37 @@
+<!--pages/addAddress/addAddress.wxml-->
+<form bindsubmit="formSubmit" report-submit class="formBox">
+    <view class="form_cell">
+        <view class="form_tips">收货人</view>
+        <view class="form_content">
+            <input type="text" placeholder="请输入名字" name="name" value="{{detail.name}}" />
+        </view>
+    </view>
+    <view class="form_cell">
+        <view class="form_tips">联系电话</view>
+        <view class="form_content">
+            <input type="number" placeholder="请输入联系电话" name="phone" maxlength="11" value="{{detail.phone}}" />
+        </view>
+    </view>
+    <view class="form_cell">
+        <view class="form_tips">所在地区</view>
+        <view class="form_content">
+            <picker mode="region" bindchange="bindRegionChange" value="{{region}}" name="area">
+                <view class="edit_ipt">
+                    <view class="ipt" wx:if="{{region.length > 0}}">{{region}}</view>
+                    <view class="ipt plc" wx:else>请选择所在地区</view>
+                    <image mode="aspectFill" src="../../static/icons/arrow_gery.png" class="arrow"></image>
+                </view>
+            </picker>
+        </view>
+    </view>
+    <view class="form_cell">
+        <view class="form_tips">详细地址</view>
+        <view class="form_content">
+            <input type="text" placeholder="请输入详细地址" name="address" value="{{detail.address}}" />
+        </view>
+    </view>
+    <button class="submit" formType="submit" disabled="{{disabled}}">保存</button>
+</form>
+<navigator hover-class="noHover" class="contact-fixed" url="/pages/chat/chat" open-type="switchTab">
+    <image mode="aspectFit" src="../../static/icons/contact.png" class="contact-icon"></image>
+</navigator>

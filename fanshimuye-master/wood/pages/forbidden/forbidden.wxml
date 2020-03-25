@@ -1,0 +1,6 @@
+<!--pages/forbidden/forbidden.wxml-->
+<view class="box">
+    <icon type="warn" size="70"/>
+    <view>您已被禁用</view>
+</view>
+  

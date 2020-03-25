@@ -1,0 +1,203 @@
+<!--pages/confirmOrder/confirmOrder.wxml-->
+<form class="confirmOrder" wx:if="{{isShow}}">
+  <view class="address_box">
+    <!-- 送货 -->
+    <block wx:if="{{send_type == 1}}">
+      <view class="address_title">收货信息</view>
+      
+      <navigator class="address_data" url="/pages/address/address?type=pay" hover-class="noHover">
+        <block wx:if="{{address.name != undefined  && showExecute==false}}">
+          <view class="link_msg">
+            <view class="link_data">
+              <view class="link_cell">{{address.name}}</view>
+              <view class="link_cell">{{address.phone}}</view>
+            </view>
+            <view class="link_address">{{address.full_address}}</view>
+          </view>
+          <image mode="aspectFill" src="../../static/icons/arrow_gery.png" class="arrow"></image>
+        </block>
+        <block wx:else>
+          <view class="add_address">
+            <image mode="aspectFill" src="../../static/icons/add.png" class="add-icon"></image>
+            <view class="add_tips">添加地址</view>
+          </view>
+        </block>
+      </navigator>
+
+
+      <navigator class="address_data" url="/pages/address/address?type=pay" hover-class="noHover">
+        <block wx:if="{{dataMap.name != undefined && showExecute==true}}">
+          <view class="link_msg">
+            <view class="link_data">
+              <view class="link_cell">{{dataMap.name}}</view>
+              <view class="link_cell">{{dataMap.phone}}</view>
+            </view>
+            <view class="link_address">{{dataMap.full_address}}</view>
+          </view>
+          <image mode="aspectFill" src="../../static/icons/arrow_gery.png" class="arrow"></image>
+        </block>
+        <block wx:else> 
+          <view class="add_address">
+            <image mode="aspectFill" src="../../static/icons/add.png" class="add-icon"></image>
+            <view class="add_tips">添加地址</view>
+          </view>
+        </block>
+      </navigator>
+    </block>
+    <!-- 自提 -->
+    <block wx:if="{{send_type == 2}}">
+      <view class="address_title">门店信息</view>
+      <navigator class="address_data" url="/pages/store_address/store_address" hover-class="noHover" wx:if="{{storeAddress != undefined}}">
+        <view class="link_msg">
+          <view class="link_data">
+            <view class="link_cell">{{storeAddress.store_name || '凡是木业线下店'}}</view>
+            <view class="link_cell">{{storeAddress.phone}}</view>
+          </view>
+          <view class="link_address">
+            {{storeAddress.province}} {{storeAddress.city}} {{storeAddress.area}} {{storeAddress.address}} {{storeAddress.store_name}}
+          </view>
+        </view>
+        <image mode="aspectFill" src="../../static/icons/arrow_gery.png" class="arrow"></image>
+      </navigator>
+
+    </block>
+    <block wx:if="{{send_type != 1&&send_type != 2}}">
+      <view class="address_data">
+        <view class="add_address">
+          <view class="add_tips">暂无门店地址</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="goods_msg">
+    <view class="goods_title">商品清单</view>
+    <view class="goods_data" wx:for="{{goods}}" wx:key="{{index}}">
+      <image mode="aspectFill" src="{{item.img || 'https://dummyimage.com/165/f0f0f0/f0f0f0.png'}}" class="goods_thumb"></image>
+      <view class="goods_other">
+        <view>
+          <view class="goods_top">
+            <view class="goods_title b_row">{{item.title}}</view>
+            <view class="goods_price">￥{{item.price}}</view>
+          </view>
+          <view class="goods_num">x{{item.num}}</view>
+        </view>
+        <view class="goods_spec">{{item.spec}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="order_send_box" wx:if="{{showExecute}}">
+    <view class="order_send_cell">
+      <view class="left_tips">
+        <view class="tips">配送方式</view>
+      </view>
+      <view class="right_content">
+        <view class="content_cell {{send_type == 2 ? 'active' : ''}}" data-type="2" bindtap="chooseSend">
+          <image mode="aspectFill" src="{{send_type == 2 ? '../../static/icons/checked.png' : '../../static/icons/check.png'}}"></image>
+          <view class="send_tips">自提</view>
+        </view>
+        <view class="content_cell {{send_type == 1 ? 'active' : ''}}" data-type="1" bindtap="chooseSend">
+          <image mode="aspectFill" src="{{send_type == 1 ? '../../static/icons/checked.png' : '../../static/icons/check.png'}}"></image>
+          <view class="send_tips">送货</view>
+        </view>
+      </view>
+    </view>
+    <view style="font-size:24rpx;color:#999;margin-top:20rpx;">运费{{price_express}}</view>
+    <view class="order_send_cell">
+      <view class="left_tips">
+        <view class="tips">余额支付( {{money}} )</view>
+      </view>
+      <view class="right_content" data-type="3" bindtap="choosePay">
+        <view class="content_cell">
+          <image mode="aspectFill" src="{{pay_type == 3 ? '../../static/icons/checked.png' : '../../static/icons/check.png'}}"></image>
+        </view>
+      </view>
+    </view>
+    <view class="order_send_cell">
+      <view class="left_tips">
+        <view class="tips">微信支付</view>
+      </view>
+      <view class="right_content" data-type="1" bindtap="choosePay">
+        <view class="content_cell">
+          <image mode="aspectFill" src="{{pay_type == 1 ? '../../static/icons/checked.png' : '../../static/icons/check.png'}}"></image>
+        </view>
+      </view>
+    </view>
+    <view class="order_send_cell">
+      <navigator class="left_tips" hover-class="noHover" url="/pages/payRule/payRule">
+        <view class="tips">线下支付</view>
+        <image mode="aspectFill" src="../../static/icons/question.png" class="icon"></image>
+      </navigator>
+      <view class="right_content" data-type="2" bindtap="choosePay">
+        <view class="content_cell">
+          <image mode="aspectFill" src="{{pay_type == 2 ? '../../static/icons/checked.png' : '../../static/icons/check.png'}}"></image>
+        </view>
+      </view>
+    </view>
+    <view style="font-size:24rpx;color:#999;margin-top:20rpx;">对接工厂客服打款（线上下单，线下付款）</view>
+    <view class="order_send_cell">
+      <view class="left_tips">
+        <view class="tips">积分抵扣（余额{{scores}}积分）</view>
+      </view>
+      <view class="right_inp_box">
+        <input class="right_inp" bindblur="score" placeholder="请输入抵扣积分"></input>
+      </view>
+    </view>
+    <view style="font-size:24rpx;color:#999;margin-top:20rpx;">{{dikou}}</view>
+  </view>
+  <!-- 留言 -->
+  <view class="msg_box">
+    <view class="msg_tips">用户留言</view>
+    <textarea name="desc" placeholder="如有其他的需求，请备注一句" bindinput="bindTextarea"></textarea>
+  </view>
+  <!-- 底部 -->
+  <cover-view class="bottom_fixed">
+    <cover-view class="account_box">
+      <cover-view class="account_tips">总计：
+        <cover-view class="price">￥{{account}}</cover-view>
+      </cover-view>
+    </cover-view>
+    <cover-view bindtap="formSubmit" class="submit {{disabled ? 'unable' : ''}}" hover-class="noHover" data-disabled="{{disabled}}">确认订单</cover-view>
+  </cover-view>
+</form>
+<navigator hover-class="noHover" class="contact-fixed" url="/pages/chat/chat" open-type="switchTab">
+  <image mode="aspectFit" src="../../static/icons/contact.png" class="contact-icon"></image>
+</navigator>
+<!-- loading -->
+<view class="waiting" wx:if="{{!isShow && !showError}}">
+  <image mode="aspectFill" src="../../static/icons/waiting.gif"></image>
+</view>
+<!-- error -->
+<view class="error" wx:if="{{showError}}">
+  <image mode="widthFix" src="../../static/icons/error.png"></image>
+  <view class="tips">订单不存在~</view>
+</view>
+
+<view class="anmu-ds" wx:if="{{balance}}" catchtap="bbbg"></view>
+
+<view class="anmu_box" wx:if="{{balance}}">
+  <input class="ing" focus bindinput="ing" maxlength="6" wx:if="{{balance}}" type="number"></input>
+  <image class="anmu-close" src="/static/icons/close.png" catchtap="bing_tas" wx:if="{{balance}}"></image>
+  <view class="anmu-title">请输入支付密码</view>
+  <view class="money">￥{{account}}</view>
+  <view class="password">
+    <view class="password_hont">
+      <view class="password_hide" wx:if="{{ingPass.length >= 1}}"></view>
+    </view>
+    <view class="password_hont">
+      <view class="password_hide" wx:if="{{ingPass.length >= 2}}"></view>
+    </view>
+    <view class="password_hont">
+      <view class="password_hide" wx:if="{{ingPass.length >= 3}}"></view>
+    </view>
+    <view class="password_hont">
+      <view class="password_hide" wx:if="{{ingPass.length >= 4}}"></view>
+    </view>
+    <view class="password_hont">
+      <view class="password_hide" wx:if="{{ingPass.length >= 5}}"></view>
+    </view>
+    <view class="password_hont" style="border:0;">
+      <view class="password_hide" wx:if="{{ingPass.length >= 6}}"></view>
+    </view>
+    <view class="confirm" bindtap="confirm_password" wx:if="{{balance}}">确定</view>
+  </view>
+</view>

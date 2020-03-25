@@ -1,0 +1,79 @@
+.title_box{
+    padding: 40rpx;
+    box-sizing: border-box;
+}
+.title_img{
+    width: 88rpx;
+    height: 88rpx;
+    margin-right: 34rpx;
+}
+.title{
+    display: flex;
+}
+.title_icon{
+    width: 28rpx;
+    height: 28rpx;
+}
+.invite_friend{
+    position: absolute;
+    top: 35rpx;
+    right: 32rpx;
+    height: 50rpx
+}
+.title_head{
+    font-size: 28rpx;
+    font-weight: 600;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title_head_box{
+    
+    width: 550rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.title_time{
+    font-size: 24rpx;
+    color: #999;
+}
+.icon_24{
+    width: 24rpx;
+    height: 24rpx;
+    margin-right: 17rpx;
+}
+.txt_34{
+    font-size: 34rpx;
+    font-weight: 600;
+    color: #333;
+}
+.title_hont{
+    margin-top:56rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+.txt_se{
+    font-size: 24rpx;
+    color: #333;
+}
+.show_img{
+    width: 750rpx;
+    height: 750rpx;
+    display: block;
+}
+.hont_text{
+    font-size:28rpx; 
+    color: #333;
+    line-height: 50rpx;
+    padding: 30rpx 40rpx 30rpx;
+}
+.kefu{
+    width: 94rpx;
+    height: 94rpx;
+    position: fixed;
+    bottom: 204rpx;
+    right: 24rpx;
+}

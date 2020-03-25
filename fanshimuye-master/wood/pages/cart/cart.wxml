@@ -1,0 +1,47 @@
+<!--pages/cart/cart.wxml-->
+<view class="cart">
+    <view class="cart_list">
+        <view class="cart_cell" wx:for="{{list}}" wx:key="{{index}}">
+            <view class="goods_data" bindtouchstart="touchS" data-index="{{index}}" bindtouchmove="touchM" bindtouchend="touchE" style="margin-left:{{item.right}}rpx">
+                <image mode="aspectFill" src="{{item.isCheck ? '../../static/icons/checked.png' : '../../static/icons/check.png'}}" class="check" bindtap="checkGoods" data-index="{{index}}"></image>
+                <navigator class="right_data" hover-class="noHover" url="/pages/goodsDetail/goodsDetail?id={{item.good_id}}">
+                    <image mode="aspectFill" src="{{item.logo || 'https://dummyimage.com/165/f0f0f0/f0f0f0.png'}}" class="goods_thumb"></image>
+                    <view class="goods_msg">
+                        <view class="msg_top">
+                            <view class="title a_row">{{item.title}}</view>
+                            <view class="spec a_row">{{item.spec_group}}</view>
+                        </view>
+                        <view class="bottom_options">
+                            <view class="price">￥{{item.price}}</view>
+                            <view class="num_options" catchtap="stop">
+                                <image class="options" mode="aspectFit" src="../../static/icons/icon-release.png" data-type="release" catchtap="chooseNum" data-index="{{index}}" id="{{item.id}}"></image>
+                                <input class="num" type="number" value="{{item.num}}" data-index="{{index}}" catchblur="changeIpt" id="{{item.id}}" />
+                                <image class="options" mode="aspectFit" src="../../static/icons/icon-add.png" data-type="add" catchtap="chooseNum" data-index="{{index}}" id="{{item.id}}"></image>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+            <view class="del_btn" style="width:{{item.width}}rpx">
+                <button class="btn red" data-index="{{index}}" bindtap="delItem" hover-class="noHover" id="{{item.id}}">删除</button>
+            </view>
+        </view>
+    </view>
+    <view class="loading" wx:if="{{loading}}">
+        <image mode="aspectFit" src="../../static/icons/loading.gif"></image>
+    </view>
+    <view class="noMore" wx:if="{{!isload}}">暂无更多</view>
+    <view class="bottom_fixed">
+        <view class="left_data">
+            <view class="check_all" bindtap="checkAllGoods">
+                <image mode="aspectFill" src="{{isAllcheck ? '../../static/icons/checked.png' : '../../static/icons/check.png'}}" class="check-icon"></image>
+                <view class="check_tips">全选</view>
+            </view>
+            <view class="account">总计: <text class="red">￥{{account}}</text></view>
+        </view>
+        <view class="right_options">
+            <button class="btn gery" hover-class="noHover" bindtap="delGoods">删除</button>
+            <button class="btn black" hover-class="noHover" bindtap="confirmOrder">结算</button>
+        </view>
+    </view>
+</view>

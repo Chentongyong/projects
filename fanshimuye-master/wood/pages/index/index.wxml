@@ -1,0 +1,255 @@
+<!--pages/index/index.wxml-->
+<view class="index">
+  <view class="loading" hidden="{{hideHeader}}">
+    <image mode="aspectFit" src="../../static/icons/loading.gif"></image>
+  </view>
+  <scroll-view scroll-y="{{true}}" scroll-into-view="{{toView}}" wx:if="{{status == 1 && isShow}}" bindscroll="scrollToTop">
+    <view bindtouchstart="touchS" bindtouchend="touchE" bindtouchmove="touchM">
+      <view class="search_box">
+        <input type="search" class="ipt" placeholder="请输入要搜索的内容" bindconfirm="bindSearch" bindinput="bindSearch1" />
+        <view class="nint" catchtap="bindSearch">
+          <image class="search_icon" src="../../static/icons/search.png" mode="aspectFit"></image>
+        </view>
+
+      </view>
+      <!-- 轮播 -->
+      <swiper class="banner" autoplay circular indicator-dots indicator-active-color="#ffffff" indicator-color="rgba(255, 255, 255, .3)" bindchange="change">
+        <swiper-item class="banner-item" wx:for="{{banner}}" wx:key="index">
+          <navigator class="banner-cell" url="{{login ? '/pages/goodsDetail/goodsDetail?id='+item.good_id : '/pages/login/login'}}" hover-class="noHover" open-type="navigate">
+            <image src="{{item.img_url}}" mode="aspectFill" lazy-load></image>
+          </navigator>
+        </swiper-item>
+      </swiper>
+      <!-- 二级分类 -->
+      <view class="second_classify" wx:if="{{showExecute == true}}">
+        <view class="second_cell" wx:for="{{cateList}}" wx:key="index"  data-index='{{index}}' bindtap="jump">
+          <image mode="aspectFill" src="{{item.logo}}" class="icon"></image>
+          <view class="title">{{item.title}}</view>
+        </view>
+        <!-- <navigator class="second_cell" url="{{item.link}}" wx:for="{{cateList}}" wx:key="index" hover-class="noHover" bindtap="jump" data-index="{{index}}">
+          <image mode="aspectFill" src="{{item.logo}}" class="icon"></image>
+          <view class="title">{{item.title}}</view>
+        </navigator> -->
+      </view>
+      <view class="order-inform" wx:if="{{showExecute == true}}">
+        <image class="icon-inform" src="/static/icons/inform.png"></image>
+        <swiper class="notice" autoplay circular bindchange="change" interval="10000">
+          <swiper-item class="banner-item" wx:key="index" wx:for="{{broadcast_list}}">
+            <text class="banner_txt">{{item}}</text> 
+          </swiper-item>
+        </swiper>
+
+      </view>
+
+      <view class="product" wx:for="{{module_cate}}" wx:for-item="items" wx:if="{{items.goods.length != 0}}" id="new" wx:key="index">
+        <view class="title_box_d">
+          <view>
+            <view class="product_title">{{items.name}}</view>
+            <view class="product_title2" wx:if="{{items.desc!=null}}">{{items.desc}}</view>
+          </view>
+          <view class="index2">
+            <text class="items_num">{{items.num||1}}</text>
+
+            <text class="items_goods">/{{items.goods.length}}</text>
+
+          </view>
+        </view>
+
+
+        <swiper class="banners" previous-margin="70rpx" circular next-margin="35rpx" data-index="{{index}}" bindchange="banners_mo">
+          <swiper-item class="banner-item" wx:for="{{items.goods}}" wx:key="index2" wx:for-index="index2">
+
+            <navigator hover-class url="{{'/pages/goodsDetail/goodsDetail?id='+item.id}}" class="banner-cells">
+              <image mode="aspectFill" src="{{item.index_logo}}" lazy-load></image>
+              <view class="product-details-title">
+                <text class="details-title">{{item.title}}</text>
+                <text class="details-money">￥{{item.price}}起</text>
+              </view>
+              <view class="details-introduce">{{item.mini_title}}</view>
+            </navigator>
+          </swiper-item>
+        </swiper>
+      </view>
+
+      <view class="product" wx:for="{{module_cates}}" wx:key="index">
+        <view class="product_title">{{item.name}}</view>
+        <swiper class="banners-2" next-margin="35rpx">
+          <swiper-item class="banner-item" wx:for="{{item.goods}}" wx:key="{{index}}">
+            <view class="banner-cells">
+              <swiper class="banners-tu" indicator-dots indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#fff">
+                <swiper-item class="banner-item" wx:for="{{item.index_logo}}" wx:key="index">
+                  <view class="banner-cells">
+                    <image src="{{item.index_logo}}" lazy-load></image>
+
+                  </view>
+                </swiper-item>
+              </swiper>
+              <!-- <image src="{{item.img_url}}" lazy-load></image> -->
+              <view class="product-details-title">
+                <text class="details-title">强化地板系列</text>
+                <text class="details-money">￥100起</text>
+              </view>
+              <view class="details-introduce">家，最重要的是归属感。如丝滑肌肤般的触感，给你阳光的温存，共渡午后的恬静。</view>
+              <view class="details-label-box">
+                <view class="details-label-orange">新品上线</view>
+                <view class="details-label-gray">2色可选</view>
+              </view>
+            </view>
+          </swiper-item>
+        </swiper>
+      </view>
+
+      <view class="product-tow">
+        <view class="product_title">晒单</view>
+        <view class="flaunt-left">
+          <view class="flaunt-big">
+            <navigator url="{{'/pages/article/article?id='+item.id}}" hover-class class="flaunt-box" wx:for="{{baskOne}}" wx:key="index">
+              <image class="flaunt-image {{index%2==1?'flaunt-height':''}}" mode="aspectFill" src="{{item.logo}}">
+              </image>
+              <text class="flaunt-txt">{{item.title}}</text>
+              <view class="bla-title">
+                <view class="name">
+                  <image class="name-img" src="{{item.headimg}}"></image>
+                  <text class="nickname">{{item.nickname}}</text>
+                </view>
+                <view class="love-box" catchtap="love_boxOne" data-index="{{index}}">
+                  <image class="love-img" src="/static/icons/collect.png"></image>
+                  <text>{{item.like_count}}</text>
+                </view>
+              </view>
+            </navigator>
+          </view>
+
+          <view class="flaunt-big">
+            <navigator url="{{'/pages/article/article?id='+item.id}}" hover-class class="flaunt-box" wx:for="{{baskTwo}}" wx:key="index">
+              <image class="flaunt-image {{index%2==0?'flaunt-height':''}}" mode="aspectFill" src="{{item.logo}}">
+              </image>
+              <text class="flaunt-txt">{{item.title}}</text>
+              <view class="bla-title">
+                <view class="name">
+                  <image class="name-img" src="{{item.headimg}}"></image>
+                  <text class="nickname">{{item.nickname}}</text>
+                </view>
+                <view class="love-box" catchtap="love_boxtow" data-index="{{index}}">
+                  <image class="love-img" src="/static/icons/collect.png"></image>
+                  <text>{{item.like_count}}</text>
+                </view>
+              </view>
+            </navigator>
+          </view>
+        </view>
+
+        <view class="sesa" bindtap="sesa">
+          <text>查看更多晒单</text>
+          <image class="love-img" src="/static/icons/right.png"></image>
+        </view>
+      </view>
+
+      <view class="All_categories_box" wx:for="{{goods_cate}}" wx:if="{{item.goods.length!=0}}" wx:key="index">
+        <view class="All_categories_title">
+          <image class="wodefake" src="{{item.img}}"></image>
+        </view>
+
+        <!-- <navigator url="{{'/pages/goodsDetail/goodsDetail?id='+item.id}}" hover-class class="syohin-hontai" wx:if="{{index == 0}}" wx:for="{{item.goods}}" wx:key="index">
+          <image class="syohin_image-big" mode="aspectFill" src="{{item.index_logo}}"></image>
+          <view class="syohin-syokai">
+            <text class="syokai-name">{{item.title}}</text>
+            <text class="syokai-kinga">￥{{item.price}}</text>
+          </view>
+        </navigator> -->
+
+        <view class="little-box">
+          <navigator url="{{'/pages/goodsDetail/goodsDetail?id='+item.id}}" hover-class class="syohin-hontai-little" wx:for="{{item.goods}}" wx:key="index">
+            <image class="flaunt-image" mode="aspectFill" src="{{item.index_logo}}"></image>
+            <view class="little-title">{{item.title}}</view>
+            <view class="little-kane">￥{{item.price}}</view>
+          </navigator>
+
+          <view class="more-box" data-id="{{item.id}}" data-cate_id="{{item.pid}}" bindtap="more">
+            <view class="more">
+              <text>查看</text>
+              <text>更多商品</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="All_categories_box" wx:for="{{list}}" wx:if="{{item.goods.length!=0}}" wx:key="index">
+        <view class="All_categories_title">
+          <image class="wodefake" src="{{item.img_url}}"></image>
+        </view>
+
+        <!-- <navigator url="{{'/pages/goodsDetail/goodsDetail?id='+item.id}}" hover-class class="syohin-hontai" wx:if="{{index == 0}}" wx:for="{{item.goods}}" wx:key="index">
+          <image class="syohin_image-big" mode="aspectFill" src="{{item.index_logo}}"></image>
+          <view class="syohin-syokai">
+            <text class="syokai-name">{{item.title}}</text>
+            <text class="syokai-kinga">￥{{item.price}}</text>
+          </view>
+        </navigator> -->
+
+        <view class="little-box">
+          <navigator url="{{'/pages/goodsDetail/goodsDetail?id='+item.id}}" hover-class class="syohin-hontai-little" wx:for="{{item.goods}}" wx:key="index">
+            <image class="flaunt-image" mode="aspectFill" src="{{item.index_logo}}"></image>
+            <view class="little-title">{{item.title}}</view>
+            <view class="little-kane">￥{{item.price}}</view>
+          </navigator>
+
+          <view class="more-box" data-id="{{item.id}}" data-cate_id="{{item.pid}}" bindtap="more">
+            <view class="more">
+              <text>查看</text>
+              <text>更多商品</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- <view class="product-tow" wx:for="{{list}}" wx:if="{{item.goods.length!=0}}" wx:key="index">
+        <view class="product-title-more">
+          <view class="product_title">{{item.name}}</view>
+          <view class="product-english">KINDERGARTEN ZONE</view>
+        </view>
+
+        <view class="kindergarten-box">
+          <navigator url="{{'/pages/goodsDetail/goodsDetail?id='+item.id}}" hover-class class="kindergarten" wx:for="{{item.goods}}" wx:key="index">
+            <image class="kindergarten-img" mode="aspectFill" wx:if="{{index%2 == 0}}" src="{{item.index_logo}}"></image>
+            <view class="kindergarten-txt" wx:if="{{index%2 == 0}}">
+              <text class="txt-xirizu">{{item.title}}</text>
+              <text class="txt-kane">￥{{item.price}}</text>
+              <text class="txt-hanbai">已售{{item.sale_count}}</text>
+              <view class="pos"></view>
+            </view>
+
+            <view class="kindergarten-txt" wx:if="{{index%2 != 0}}">
+              <text class="txt-xirizu">{{item.title}}</text>
+              <text class="txt-kane">￥{{item.price}}</text>
+              <text class="txt-hanbai">已售{{item.sale_count}}</text>
+              <view class="poss"></view>
+            </view>
+            <image class="kindergarten-img" mode="aspectFill" src="{{item.index_logo}}" wx:if="{{index%2 != 0}}"></image>
+          </navigator>
+        </view>
+      </view> -->
+
+      <!-- 列表 -->
+      <!-- <view class="list" id="{{item.name == '新品发布台' ? 'new' : ''}}" wx:for="{{list}}" wx:key="{{index}}">
+        <view class="list_title">{{item.name}}</view>
+        <view class="goods_list">
+          <navigator url="{{login ? '/pages/goodsDetail/goodsDetail?id='+item.id : '/pages/login/login'}}" hover-class="noHover" class="goods_cell" wx:for="{{item.goods}}" wx:key="{{index}}">
+            <image mode="aspectFit" src="{{item.logo}}" class="goods_thumb"></image>
+            <view class="goods_title a_row">{{item.title}}</view>
+            <view class="price">￥{{item.price}}</view>
+            <view class="sales">销量{{item.sale_count}}</view>
+          </navigator>
+        </view>
+      </view> -->
+    </view>
+  </scroll-view>
+  <view class="login_tips" wx:elif="{{status == 0}}">
+    <image mode="widthFix" src="../../static/icons/login_tips.png" class="login_logo"></image>
+    <text class="login_desc">小程序仅限二级服务商使用，\r\n请登录注册后查看。</text>
+    <navigator url="/pages/memberLogin/memberLogin" hover-class="noHover" class="login_btn">去登录</navigator>
+  </view>
+  <navigator hover-class="noHover" class="contact-fixed" url="/pages/chat/chat" open-type="switchTab" wx:if="{{status == 1 && isShow}}">
+    <image mode="aspectFit" src="../../static/icons/contact.png" class="contact-icon"></image>
+  </navigator>
+</view>

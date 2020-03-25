@@ -1,0 +1,78 @@
+.wrap {
+  padding-bottom: 120rpx;
+  background-color: #ffffff;
+}
+.scroll_view {
+  width: 100%;
+  height: 300rpx;
+}
+.scroll_view .list {
+  padding: 20rpx 0 0 30rpx;
+  white-space: nowrap;
+}
+.scroll_view .cover {
+  display: inline-block;
+  margin-right: 30rpx;
+  width: 230rpx;
+  height: 250rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx 70rpx 20rpx 20rpx;
+}
+.group {
+  padding: 0 30rpx;
+}
+.group .flex {
+  padding: 28rpx 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.group .cover {
+  width: 106rpx;
+  height: 106rpx;
+}
+.group .txt {
+  margin: 0 12rpx 0 24rpx;
+}
+.group input {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  height: 90rpx;
+  overflow: hidden;
+}
+.tips {
+  margin: 40rpx 30rpx;
+  font-size: 24rpx;
+  color: #999999;
+}
+.btns {
+  box-sizing: border-box;
+  margin: 40rpx 0;
+  padding: 0 30rpx;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+}
+.btns .btn {
+  width: 266rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  border-radius: 40rpx;
+  border: 1rpx solid #ff3a51;
+  text-align: center;
+}
+.btns .btn:not(.bg_main) {
+  background-color: #ffffff;
+}
+

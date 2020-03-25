@@ -1,0 +1,59 @@
+<!--pages/list/list.wxml-->
+<view class="list_box">
+    <view class="tabList">
+        <view class="tabCell {{id == item.id ? 'active' : ''}}" wx:for="{{tabList}}" wx:key="index" data-index="{{index}}" bindtap="chooseTab" id="{{item.id}}">{{item.title}}</view>
+    </view>
+    <!-- desc 降序\
+        asc 升序
+     -->
+    <view class="filter_box">
+        <view class="filter_cell" bindtap="sortPrice">
+            <view class="filter_tips">价格</view>
+            <image mode="aspectFill" src="../../static/icons/trans.png" class="trans {{priceSort == 'desc' ? 'rotate' : ''}}"></image>
+        </view>
+        <view class="filter_cell" bindtap="sortSale">
+            <view class="filter_tips">销量</view>
+            <image mode="aspectFill" src="../../static/icons/trans.png" class="trans {{saleSort == 'desc' ? 'rotate' : ''}}"></image>
+        </view>
+        <view class="filter_cell" bindtap="openFilter">
+            <view class="filter_tips">筛选</view>
+            <image mode="aspectFill" src="../../static/icons/trans.png" class="trans"></image>
+        </view>
+    </view>
+    <!-- 列表 -->
+    <view class="list">
+        <view class="goods_list">
+            <navigator url="/pages/goodsDetail/goodsDetail?id={{item.id}}" hover-class="noHover" class="goods_cell" wx:for="{{list}}" wx:key="index">
+                <image mode="aspectFit" src="{{item.logo}}" class="goods_thumb"></image>
+                <view class="goods_title a_row">{{item.title}}</view>
+                <view class="price">￥{{item.price}}</view>
+                <view class="sales">销量{{item.sale_count}}</view>
+            </navigator>
+        </view>
+    </view>
+</view>
+<view class="loading" wx:if="{{loading}}">
+    <image mode="aspectFit" src="../../static/icons/loading.gif"></image>
+</view>
+<view class="noMore" wx:if="{{!isload}}">暂无更多</view>
+<navigator hover-class="noHover" class="contact-fixed" url="/pages/chat/chat" open-type="switchTab">
+    <image mode="aspectFit" src="../../static/icons/contact.png" class="contact-icon"></image>
+</navigator>
+<!-- 筛选弹窗 -->
+<view class="filter_pop" wx:if="{{showPop}}">
+    <view class="close_bg" bindtap="closePop"></view>
+    <view class="filter_content {{showPop ? 'open' : ''}}" >
+        <view class="" wx:for="{{cateList}}" wx:key="index" bindtap="chooseCate" data-index="{{index}}" id="{{item.id}}">
+          <view class="filter_cell">
+            <view class="name">{{item.name}}</view>
+            <image class="check {{cate_choose == index ? 'rotate' : ''}}" mode="aspectFill" src="../../static/icons/trans.png"></image>
+          </view>
+          <view class="filter_cell" wx:for="{{item.son}}" id="{{item2.id}}" catchtap="chooseItem" wx:key="{{item.id}}" wx:if="{{item.show}}" wx:for-item="item2">
+            <view class="name">{{item2.name}} </view>
+            <image class="check" mode="aspectFill" wx:if="{{item2.id == tags_id}}" src="../../static/icons/gou.jpg"></image>
+          </view>
+            
+        </view>
+        
+    </view>
+</view>

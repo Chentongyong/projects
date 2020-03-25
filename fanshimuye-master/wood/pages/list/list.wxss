@@ -1,0 +1,168 @@
+/* pages/list/list.wxss */
+
+@import "../index/index.wxss";
+.list_box {
+    padding-top: 155rpx;
+}
+
+.tabList {
+    position: fixed;
+    left: 0;
+    right: 0;
+    background: #fff;
+    z-index: 1000;
+    top: 0;
+    display: -webkit-box;
+    overflow-x: auto;
+    padding-left: 40rpx;
+    height: 100rpx;
+    -webkit-box-align: center;
+}
+
+.tabList .tabCell {
+    font-size: 28rpx;
+    color: #333;
+    margin-right: 65rpx;
+    line-height: 100rpx;
+}
+
+.tabList .tabCell:last-child {
+    padding-right: 40rpx;
+}
+
+.tabList .active {
+    font-weight: bold;
+    position: relative;
+}
+
+.tabList .active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4rpx;
+    background: #333;
+    border-radius: 50rpx;
+}
+
+.tabList .active:last-child::after {
+    right: 40rpx;
+}
+
+.contact-fixed {
+    z-index: 100;
+}
+
+.filter_box {
+    position: fixed;
+    top: 100rpx;
+    left: 0;
+    right: 0;
+    background: #fff;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 75rpx;
+    height: 113rpx;
+    border-top: 1rpx solid #ebebeb;
+}
+
+.filter_box .filter_cell {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.filter_cell {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.filter_box .filter_cell .filter_tips {
+    font-size: 26rpx;
+    color: #333;
+}
+
+.filter_box .filter_cell .trans {
+    width: 25rpx;
+    height: 25rpx;
+    display: block;
+    margin-left: 10rpx;
+    transition: .3s;
+}
+
+.filter_box .filter_cell .rotate {
+    transform: rotate(180deg);
+}
+.rotate {
+    transform: rotate(180deg);
+}
+.filter_pop {
+    position: fixed;
+    top: 215rpx;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, .5);
+    overflow: hidden;
+}
+
+.filter_pop .close_bg {
+    position: fixed;
+    top: 215rpx;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.filter_pop .filter_content {
+    background: #fff;
+    width: calc(384rpx - 80rpx);
+    padding: 0 40rpx 50rpx;
+    overflow-y: auto;
+    position: absolute;
+    right: -384rpx;
+    top: 0;
+    bottom: 0;
+    transition: 5s;
+}
+
+.filter_pop .filter_content .filter_cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 50rpx;
+}
+
+.filter_pop .filter_content .filter_cell:nth-child(4n+4) {
+    /* padding-bottom: 50rpx;
+    border-bottom: 1rpx solid #ebebeb; */
+}
+
+.filter_pop .filter_content .filter_cell:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.filter_pop .filter_content .filter_cell .name {
+    flex: 1;
+    overflow: hidden;
+    font-size: 26rpx;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.filter_pop .filter_content .filter_cell .check {
+    width: 30rpx;
+    height: 30rpx;
+    display: block;
+    margin-left: 20rpx;
+}
+
+.filter_pop .open {
+    right: 0rpx;
+}

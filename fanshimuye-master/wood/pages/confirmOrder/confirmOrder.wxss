@@ -1,0 +1,407 @@
+/* pages/confirmOrder/confirmOrder.wxss */
+
+.confirmOrder {
+  display: block;
+  padding-bottom: 120rpx;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow: scroll;
+}
+
+.address_box {
+  padding: 40rpx 38rpx;
+}
+
+.address_box .address_title {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.address_box .address_data {
+  padding-top: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.address_box .address_data .link_msg {
+  flex: 1;
+  overflow: hidden;
+}
+
+.address_box .address_data .link_msg .link_data {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  line-height: 40rpx;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.address_box .address_data .link_msg .link_data .link_cell {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.address_box .address_data .link_msg .link_data .link_cell:first-child {
+  margin-right: 40rpx;
+}
+
+.address_box .address_data .link_msg .link_address {
+  font-size: 26rpx;
+  color: #999;
+  padding-top: 15rpx;
+}
+
+.address_box .address_data .arrow {
+  width: 13rpx;
+  height: 22rpx;
+  display: block;
+}
+
+.goods_msg {
+  border-top: 16rpx solid #f6f6f6;
+  padding: 40rpx;
+}
+
+.goods_msg .goods_title {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.goods_msg .goods_data {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35rpx;
+}
+
+.goods_msg .goods_data .goods_thumb {
+  width: 200rpx;
+  height: 200rpx;
+  display: block;
+  margin-right: 25rpx;
+}
+
+.goods_msg .goods_data .goods_other {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.goods_msg .goods_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.goods_msg .goods_top .goods_title {
+  flex: 1;
+  overflow: hidden;
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.goods_msg .goods_top .goods_price {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.goods_msg .goods_num {
+  text-align: right;
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+  padding-top: 20rpx;
+}
+
+.goods_msg .goods_spec {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.contact-fixed {
+  bottom: 250rpx;
+}
+
+.order_send_box {
+  padding: 0 40rpx 40rpx;
+  border-top: 16rpx solid #f6f6f6;
+}
+
+.order_send_box .order_send_cell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40rpx;
+}
+
+.order_send_box .order_send_cell .left_tips {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.order_send_box .order_send_cell .left_tips .icon {
+  width: 26rpx;
+  height: 26rpx;
+  display: block;
+  margin-left: 15rpx;
+}
+
+.order_send_box .order_send_cell .right_content {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.order_send_box .order_send_cell .right_content .content_cell {
+  margin-left: 50rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.order_send_box .order_send_cell .right_content .content_cell image {
+  width: 29rpx;
+  height: 29rpx;
+  display: block;
+}
+
+.order_send_box .order_send_cell .right_content .content_cell .send_tips {
+  font-size: 28rpx;
+  color: #999;
+  margin-left: 10rpx;
+}
+
+.order_send_box .order_send_cell .right_content .active .send_tips {
+  color: #333;
+}
+
+.right_inp {
+  direction: rtl;
+  width: 194rpx;
+  height: 26rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: rgba(149, 149, 149, 1);
+  line-height: 40rpx;
+}
+
+.msg_box {
+  padding: 40rpx;
+  border-top: 16rpx solid #f6f6f6;
+}
+
+.msg_box .msg_tips {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.msg_box textarea {
+  margin-top: 35rpx;
+  box-sizing: border-box;
+  border-radius: 5rpx;
+  border: 1rpx solid #d6dbe2;
+  height: 289rpx;
+  padding: 24rpx;
+  font-size: 28rpx;
+  color: #333;
+  width: 100%;
+  display: block;
+}
+
+.bottom_fixed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 109rpx;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background: #fff;
+  box-shadow: 0 0 10rpx 0 rgba(0, 0, 0, 0.05);
+}
+
+.bottom_fixed .account_box {
+  padding: 0 40rpx;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.bottom_fixed .account_box .account_tips {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bottom_fixed .account_box .account_tips .price {
+  display: block;
+  width: 200rpx;
+  color: #f36449;
+  font-weight: bold;
+  /* flex: 1; *//* overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all; */
+  padding-right: 20rpx;
+}
+
+.bottom_fixed .submit {
+  height: 109rpx;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  line-height: 109rpx;
+  display: block;
+  width: 254rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.add_address {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30rpx 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.add_address .add-icon {
+  width: 50rpx;
+  height: 50rpx;
+  display: block;
+  margin-right: 20rpx;
+}
+
+.add_address .add_tips {
+  font-size: 34rpx;
+  color: #333;
+}
+
+.unable {
+  opacity: 0.7;
+}
+
+.anmu-ds {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 99;
+  overflow: hidden;
+}
+
+.anmu_box {
+  position: absolute;
+  top: 270rpx;
+  left: 66rpx;
+  width: 619rpx;
+  height: 556rpx;
+  border-radius: 5rpx;
+  padding: 48rpx 42rpx 40rpx;
+  box-sizing: border-box;
+  background: #fff;
+  color: #333;
+  z-index: 100;
+}
+
+.anmu-close {
+  position: absolute;
+  top: 29rpx;
+  right: 42rpx;
+  width: 25rpx;
+  height: 25rpx;
+  z-index: 201;
+}
+
+.anmu-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 75rpx;
+}
+
+.money {
+  height: 80rpx;
+  font-size: 80rpx;
+  color: #333;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 64rpx;
+}
+
+.password {
+  width: 535rpx;
+  height: 90rpx;
+  border: 1rpx solid #d6dbe2;
+  border-radius: 5px 0px 0px 0px;
+  display: flex;
+  margin-bottom: 40rpx;
+}
+
+.password_hont {
+  width: 89rpx;
+  height: 90rpx;
+  border-right: 1rpx solid #d6dbe2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.password_hide {
+  width: 30rpx;
+  height: 30rpx;
+  background: #333;
+  border-radius: 50%;
+}
+
+.ing {
+  position: absolute;
+  top: 0;
+  left: -200rpx;
+  width: 130%;
+  height: 100%;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0);
+}
+
+.confirm {
+  width: 535rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #333;
+  color: #fff;
+  border-radius: 5rpx;
+  position: absolute;
+  left: 42rpx;
+  bottom: 40rpx;
+  z-index: 201;
+}

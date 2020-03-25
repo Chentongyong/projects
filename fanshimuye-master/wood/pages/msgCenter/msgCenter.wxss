@@ -1,0 +1,15 @@
+/* pages/msgCenter/msgCenter.wxss */
+
+.center {
+    padding: 0 40rpx;
+}
+
+.msg_cell {
+    padding: 35rpx 0;
+    border-bottom: 1rpx solid #ebebeb;
+}
+
+.msg_cell .title {
+    font-size: 28rpx;
+    color: #333;
+}

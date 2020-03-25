@@ -1,0 +1,82 @@
+<!--pages/mine_data/mine_data.wxml-->
+<form class="formBox" bindsubmit="formSubmit">
+    <view class="form_cell avatar_box">
+        <view class="form_tips">头像</view>
+        <view class="form_content">
+            <image mode="aspectFill" src="{{detail.avatar}}" class="avatar" bindtap="chooseAvatar"></image>
+        </view>
+    </view>
+    <view class="form_cell">
+        <view class="form_tips">昵称</view>
+        <view class="form_content">
+            <input type="text" placeholder="请输入昵称" value="{{detail.nickName}}" name="nickName" />
+        </view>
+    </view>
+    <view class="form_cell">
+        <view class="form_tips">性别</view>
+        <view class="form_content">
+            <view class="content_cell {{detail.sexy == 1 ? 'active' : ''}}" data-type="1" bindtap="chooseSexy">
+                <image mode="aspectFill" src="{{detail.sexy == 1 ? '../../static/icons/checked.png' : '../../static/icons/check.png'}}"></image>
+                <view class="send_tips">男</view>
+            </view>
+            <view class="content_cell {{detail.sexy == 2 ? 'active' : ''}}" data-type="2" bindtap="chooseSexy">
+                <image mode="aspectFill" src="{{detail.sexy == 2 ? '../../static/icons/checked.png' : '../../static/icons/check.png'}}"></image>
+                <view class="send_tips">女</view>
+            </view>
+        </view>
+    </view>
+    <view class="form_cell">
+        <view class="form_tips">手机号</view>
+        <view class="form_content">
+            <input type="number" placeholder="请输入手机号码" value="{{detail.phone}}" name="phone" maxlength="11" />
+        </view>
+    </view>
+    <view class="form_cell">
+        <view class="form_tips">所在区域</view>
+        <view class="form_content">
+            <picker mode="selector" range="{{proviceData}}" range-key="areaName" value="{{index}}" bindchange="bindProvice">
+                <view class="cell">
+                    <view class="ipt a_row" wx:if="{{provice}}">{{provice}}</view>
+                    <view class="ipt plc" wx:else>省</view>
+                    <image mode="aspectFill" src="../../static/icons/arrow_gery.png" class="arrow"></image>
+                </view>
+            </picker>
+            <picker mode="selector" range="{{cityData}}" range-key="areaName" value="{{index}}" bindchange="bindCity" disabled="{{cityData.length < 1}}">
+                <view class="cell">
+                    <view class="ipt a_row" wx:if="{{city}}">{{city}}</view>
+                    <view class="ipt plc" wx:else>市</view>
+                    <image mode="aspectFill" src="../../static/icons/arrow_gery.png" class="arrow"></image>
+                </view>
+            </picker>
+            <picker mode="selector" range="{{areaData}}" range-key="areaName" value="{{index}}" bindchange="bindArea" disabled="{{areaData.length < 1}}">
+                <view class="cell">
+                    <view class="ipt a_row" wx:if="{{area}}">{{area}}</view>
+                    <view class="ipt plc" wx:else>区</view>
+                    <image mode="aspectFill" src="../../static/icons/arrow_gery.png" class="arrow"></image>
+                </view>
+            </picker>
+        </view>
+    </view>
+    <view class="form_cell">
+        <view class="form_tips">详细地址</view>
+        <view class="form_content">
+            <input type="text" placeholder="输入正确地址" value="{{detail.address}}" name="address" />
+        </view>
+    </view>
+    <view class="form_cell">
+        <view class="form_tips">出生日期</view>
+        <view class="form_content">
+            <picker mode="date" bindchange="bindDateChange" value="{{detail.date}}" name="date" end="{{endTime}}">
+                <view class="edit_ipt">
+                    <view class="ipt" wx:if="{{detail.date}}">{{detail.date}}</view>
+                    <view class="ipt plc" wx:else>选择日期</view>
+                    <image mode="aspectFill" src="../../static/icons/arrow_gery.png" class="arrow"></image>
+                </view>
+            </picker>
+        </view>
+    </view>
+    <button class="submit" formType="submit" disabled="{{disabled}}">保存</button>
+</form>
+<navigator hover-class="noHover" class="contact-fixed" url="/pages/chat/chat" open-type="switchTab">
+    <image mode="aspectFit" src="../../static/icons/contact.png" class="contact-icon"></image>
+</navigator>
