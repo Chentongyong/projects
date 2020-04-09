@@ -1,0 +1,320 @@
+<view class="big_box">
+
+  <view class="commodity_images_box">
+    <swiper indicator-dots autoplay duration="500" class="swiper-item">
+      <block wx:for="{{background_img}}" wx:key="index">
+        <swiper-item>
+          <view class="swiper-item">
+            <image class="swiper-item" src="{{item}}"></image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class="time_limit_box" wx:if="{{time_limit == 1||group_purchase==1}}">
+
+    <view class="price_box">
+      <text class="now_price">￥2180</text>
+      <text class="formerly_price"> 原价￥3000</text>
+    </view>
+
+    <view class="time_limit">
+      <view class="time_limit_img_box">
+        <image class="time_limit_img" src="../../images/icon/time_limit.png" wx:if="{{time_limit == 1}}"></image>
+        <image class="time_limit_img" src="../../images/icon/group_purchase.png" wx:if="{{group_purchase==1}}"></image>
+      </view>
+      <view class="count_down_box">
+        <van-count-down use-slot time="{{ time }}" bind:change="count_down">
+
+          <text class="item">{{ timeData.days }}</text>
+          <text class="item_time">天</text>
+          <text class="item">{{ timeData.hours }}</text>
+          <text class="item_time">时</text>
+          <text class="item">{{ timeData.minutes }}</text>
+          <text class="item_time">分</text>
+          <text class="item">{{ timeData.seconds }}</text>
+          <text class="item_time">秒</text>
+        </van-count-down>
+
+      </view>
+    </view>
+
+  </view>
+
+  <view class="particulars_box">
+    <view>
+      <view class="particulars_titlo">制氧机3L家用吸氧机</view>
+      <view class="particulars_describe">制氧+雾化，带雾化老人孕妇医用分子筛氧气机 3L家用制氧机</view>
+    </view>
+    <view class="sellingPrice_box">
+      <text wx:if="{{time_limit == 1||group_purchase==1}}"></text>
+      <text class="sellingPrice_money" wx:if="{{time_limit == 0&&group_purchase==0}}">￥2180</text>
+      <text class="sellingPrice_quantity">销量 666</text>
+    </view>
+  </view>
+
+  <view class="discount_coupon_box" bindtap="showPopup_discounts" wx:if="{{group_purchase==0&&time_limit==0}}">
+    <view class="discount_coupon_in">
+      <view class="discount_coupon">100元优惠券</view>
+      <view class="discount_coupon">100元优惠券</view>
+    </view>
+    <view class="get">
+      <text>领取</text>
+      <image class="icon" src="../../images/order_server/server_arrow.png"></image>
+    </view>
+  </view>
+
+  <view class="select_box" bindtap="showPopup">
+    <view class="select">规格</view>
+    <view class="select_selected">
+      <text>{{specification_null}}</text>
+      <image class="icon" src="../../images/order_server/server_arrow.png"></image>
+    </view>
+  </view>
+
+  <view class="safeguard_box">
+    <view class="safeguard_text">保障</view>
+    <view class="safeguard_project_box">
+      <view class="safeguard_project" wx:for="{{bzData}}" bindtap="safeguard" wx:key="index" data-zt="{{item.zt}}">
+        <image class="icon_24" src="{{item.src}}"></image>
+        <text style="font-size:22rpx;">{{item.name}}</text>
+      </view>
+
+    </view>
+  </view>
+
+
+  <view class="tuxedo_box" wx:if="{{group_purchase==1}}">
+    <!--团购-->
+
+    <view class="tuxedo_titlo">
+      <view>参团</view>
+      <view class="tuxedo_more" bindtap="more_spell_group">
+        <view>查看更多</view>
+        <image class="icon_arrows" src="../../images/order_server/server_arrow.png"></image>
+      </view>
+    </view>
+
+    <view class="number_of_people_box">
+      <text style="color:#EB442E;">1925人</text>
+      <text>在拼单，可直接参与</text>
+    </view>
+
+    <view class="group_purchase_box">
+      <view class="group_purchase_data" wx:for="{{tuoguan}}">
+        <view class="data_user_img_box">
+          <image class="data_user_img" src="../../images/user.png"></image>
+          <text>{{item}}</text>
+        </view>
+
+        <view class="group_purchase_time_box">
+          <view class="group_purchase_time">
+            <text>还差一人拼成</text>
+            <view style="display: flex;">
+              <text style="color:#999;">剩余</text>
+              <van-count-down use-slot time="{{ time1 }}" bind:change="onChange1">
+                <text class="item1">{{ timeData1.hours<9?'0'+timeData1.hours:timeData1.hours}}:</text>
+                <text class="item1">{{ timeData1.minutes }}:</text>
+                <text class="item1">{{ timeData1.seconds }}</text>
+              </van-count-down>
+            </view>
+          </view>
+          <view class="confirm_the_spelling_list" bindtap="purchase">拼单</view>
+        </view>
+
+      </view>
+
+    </view>
+  </view>
+
+
+  <view class="business_information_box">
+    <view class="business_information_titlo">商家信息</view>
+    <view>
+      <view class="business_information_information">
+        <image class="brand" src="../../images/store/store1.png"></image>
+        <view class="business_information">
+          <view class="business_titlo">门店名称</view>
+          <view class="business_message yy">广州市天河区前进街道东英商务园D栋211-212</view>
+          <view class="business_message">距离 345米</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="product_details_box">
+    <view class="{{details_and_evaluation == 0?'product_details_option2':'product_details_option'}}" bindtap="details">
+      <view>商品详情</view>
+      <view class="{{details_and_evaluation==0?'product_details_placeholder':''}}"></view>
+    </view>
+
+    <view class="{{details_and_evaluation == 1?'product_details_option2':'product_details_option'}}" bindtap="evaluation">
+      <view>评价</view>
+      <view class="{{details_and_evaluation==1?'product_details_placeholder':''}}"></view>
+    </view>
+  </view>
+
+  <view class="image_details_box" hidden="{{details_and_evaluation==1}}">
+    <!--图片详情-->
+    <view class="image_details" wx:for="{{image}}" wx:key="index">
+      <image class="image" src="{{item}}"></image>
+    </view>
+  </view>
+
+  <view class="comment_box" hidden="{{details_and_evaluation==0}}" wx:for="{{2}}" wx:key="index">
+    <view class="comment_user">
+      <image class="user_img" src="../../images/user.png"></image>
+    </view>
+    <view class="comment_reply" bindtap="comment_reply"  data-index="{{index}}">
+
+      <view class="comment_name">
+        <view class="name_and_grade">
+          <text>拓冠科技</text>
+          <van-rate value="{{ star }}" size="{{ 15 }}" color="#ffd21e" void-color="#eee" void-icon="star" readonly bind:change="onChange" />
+        </view>
+        <view class="grade_and_time">2019-10-31</view>
+      </view>
+
+      <view class="grade">第二次买了，蛮好的，客服服务态度也非常好下次还会继续买。</view>
+
+      <view class="grade_image_box">
+        <image 
+        class="grade_image"
+        wx:for="{{imgList}}"
+        wx:key="index"
+        src="{{item}}"
+        catchtap="grade_image"
+        data-index="{{index}}">
+        </image>
+      </view>
+
+      <!-- <view class="merchant_grade_box">
+        <view wx:for="{{comments_inpue}}">
+          <text style="color:#129CA3;">{{item.name}}:</text>
+          <text style="margin-left:20rpx;">{{item.comments}}</text>
+        </view>
+      </view> -->
+
+      <view class="add_comments">
+        <text >评论</text>
+        <van-icon size="16" name="comment-o" />
+      </view>
+    </view>
+  </view>
+
+
+
+
+  <view class="operation_box">
+    <view class="collect_box">
+      <image class="icon_collect" src="../../images/icon/kf.png"></image>
+      <text>联系客服</text>
+    </view>
+    <view class="collect_box2" wx:if="{{time_limit == 1||group_purchase==1}}"></view>
+    <view class="collect_box" wx:if="{{time_limit == 0&&group_purchase==0}}" bindtap="collect">
+      <image class="icon_collect" src="{{collect==0?'../../images/icon/collect.png':'../../images/icon/collect1.png'}}"></image>
+      <text>加入收藏</text>
+    </view>
+    <view class="long_box3" wx:if="{{time_limit == 1||group_purchase==1}}"></view>
+    <view class="long_box" wx:if="{{time_limit == 0&&group_purchase==0}}" bindtap="long">
+      <text>加入购物车</text>
+    </view>
+    <view class="long_box2" bindtap="purchase">
+      <text>立即购买</text>
+    </view>
+  </view>
+</view>
+
+
+<!--规格弹窗-->
+<van-popup show="{{ show }}" position="bottom" custom-style="height: 70%;" bind:close="onClose">
+  <view class="popup" wx:if="{{specification_popup == 1}}">
+    <view class="popup_Image_details_box">
+      <view class="popup_Image_box">
+        <image class="popup_Image" src="../../images/Commodity_images.png"></image>
+      </view>
+
+      <view class="popup_details_box">
+        <view class="popup_details_money">￥2180</view>
+        <view class="popup_details_selected"> 已选 1.5匹，白色</view>
+      </view>
+
+    </view>
+    <view>
+      <view class="popup_details_specification_titlo">大小</view>
+      <view class="popup_details_specification_box">
+        <view class="{{specification_size==index?'popup_details_specification_default':'popup_details_specification'}}" wx:for="{{specification}}" wx:key="index" bindtap="specification_size" data-index="{{index}}">
+          {{item}}
+        </view>
+      </view>
+    </view>
+
+    <view>
+      <view class="popup_details_specification_titlo">颜色</view>
+      <view class="popup_details_specification_box">
+        <view class="{{specification_color==index?'popup_details_specification_default':'popup_details_specification'}}" wx:for="{{iro}}" wx:key="index" bindtap="specification_color" data-index="{{index}}">
+          {{item}}
+        </view>
+      </view>
+    </view>
+
+    <view class="specification_affirm" bindtap="specification_affirm">确定</view>
+  </view>
+
+  <!--优惠券-->
+  <view class="popup" style="background:#f3f3f3;" wx:if="{{specification_popup == 0}}">
+    <view class="discounts_box" wx:for="{{discount}}" wx:key='index'>
+      <view class="discounts_denomination">
+        <text style="font-size:50rpx;">￥{{item.miae}}</text>
+        <text style="font-size:26rpx;">优惠券</text>
+      </view>
+      <view class="discounts_service_conditions_box">
+        <text class="discounts_service_conditions">满{{item.man}}减{{item.miae}}</text>
+        <view class="date_of_service_box">
+          <text class="date_of_service">使用期限</text>
+          <text class="date_of_service">{{item.riqi}}</text>
+        </view>
+      </view>
+      <view class="discounts_state" bindtap="discounts_state" data-index="{{index}}">
+
+        <text class="discounts_state_unconfirmed" wx:if="{{item.liji==0}}">立即领取</text>
+        <text class="discounts_state_affirm" wx:if="{{item.liji==1}}">已领取</text>
+      </view>
+    </view>
+    <view class="discount_confirm" bindtap="discount_confirm">
+      确定
+    </view>
+
+  </view>
+</van-popup>
+
+<view class="add_comments_pos" style="bottom:50rpx;" wx:if='{{review == 1}}'>
+  <view class="input_box">
+    <input style="width:100%;" focus cursor-spacing="12" bindblur="blur_input" bindinput="comments_inpue" placeholder="请输入你想要评论的内容"></input>
+  </view>
+  <view class="input_submit" bindtap="to_send_comments">完成</view>
+</view>
+
+
+<van-dialog use-slot title="正在拼团" show="{{ isspelled_group }}" show-confirm-button="0" bind:close="onClose" bind:getuserinfo="getUserInfo">
+  <view class="group_booking_popup">
+    <view class="group_purchase_data" style="padding:30rpx 0;" wx:for="{{tuoguan2}}">
+      <image class="data_user_img" src="../../images/user.png"></image>
+
+      <view style="width:400rpx;" class="group_purchase_time_box">
+        <view class="group_purchase_time">
+          <view>
+            <text>{{item}}</text>
+            <text style="font-size:24rpx;color:#999;">还差一人</text>
+          </view>
+          <view>
+            <text style="color:#999;">剩余</text>
+            <text style="color:#EB442E;">09:11:23</text>
+          </view>
+        </view>
+        <view class="confirm_the_spelling_list">拼单</view>
+      </view>
+    </view>
+  </view>
+</van-dialog>

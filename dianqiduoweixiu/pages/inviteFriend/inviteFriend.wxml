@@ -1,0 +1,31 @@
+<view class="big_box">
+  
+  <view class="group_booking_box">
+    <view class="group_booking">拼团中，还差3人组团成功</view>
+    <view class="item_text ale">分享给好友群，成功率更高哦</view>
+    <van-count-down
+      use-slot
+      time="{{ time }}"
+      bind:change="onChange">
+       
+      <text class="item_text">剩余</text>
+      <text class="item">{{ timeData.days }}</text><text class="item_text">天</text>
+      <text class="item">{{ timeData.hours }}</text><text class="item_text">时</text>
+      <text class="item">{{ timeData.minutes }}</text><text class="item_text">分</text>
+      <text class="item">{{ timeData.seconds }}</text><text class="item_text">秒</text>
+    </van-count-down>
+  </view>
+
+  <view class="user_img_box">
+    <image class="user_img" wx:for="{{user_img}}" src="{{item}}"></image>
+  </view>
+  
+  <button class="invite_friend"  open-type="share">邀请好友拼团</button>
+
+  <view class="notice_box">
+    <view class="notice_titlo">拼团须知</view>
+    <view>1.邀请好友拼单邀请好友拼单邀请好友拼单</view>
+    <view>2.人满发货人满发货人满发货</view>
+    <view>3.人不满退款</view>
+  </view>
+</view>

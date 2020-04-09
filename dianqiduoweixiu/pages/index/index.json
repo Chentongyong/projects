@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "van-icon": "../@vant/weapp/dist/icon/index",
+    "van-count-down": "../@vant/weapp/dist/count-down/index"
+  }
+}

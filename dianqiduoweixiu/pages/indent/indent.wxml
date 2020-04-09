@@ -1,0 +1,116 @@
+<view class="big_box">
+
+  <view class="shipping_address_box" wx:if="{{location==0}}" bindtap="diszi">
+    <view class="userinfo">收货地址</view>
+    <view class="shipping_address_message">
+      <view>添加收货信息</view>
+      <image class="message_icon" src="../../images/order_server/server_arrow.png"></image>
+    </view>
+  </view>
+  <view class="shipping_address_box" wx:if="{{location==1}}" bindtap="diszi">
+    <view class="userinfo">
+      <text>{{data.name}}</text>
+      <image class="dz_icon" src="../../images/icon/kaisya.png"></image>
+    </view>
+    <view>
+      <view class="phone">{{data.phone}}</view>
+      <view class="shipping_address_message">
+        <view>{{data.dizi}}</view>
+        <image class="message_icon" src="../../images/order_server/server_arrow.png" wx:if="{{submit_order == 0}}"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="segmentation_box">
+    <image class="segmentation" src="../../images/icon/Address_the_border.png"></image>
+  </view>
+
+  <view wx:for="{{arr}}" wx:key="index">
+    <view class="merchandise_news_box">
+      <view class="merchandise_news_titlo">商品信息</view>
+      <view class="merchandise_news">
+        <image class="merchandise_news_img" src="{{item.image}}"></image>
+        <view class="merchandise_news_message">
+          <view class="merchandise_news_name">{{item.title}}</view>
+          <view class="merchandise_news_style">{{item.pro_name}}</view>
+          <view class="select_quantity_box">
+            <view>￥{{item.price}}</view>
+            <van-stepper value="{{ item.num||1 }}" bind:change="onChange" data-index="{{index}}" wx:if="{{submit_order==0}}" />
+            <text wx:if="{{submit_order==1}}">×{{item.num||1}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="total_payment_box" wx:if="{{total_payment == 1}}">
+        <!--拼团时全款购买-->
+        <text style="color:#666;">全款</text>
+        <text>￥{{item.totalPrice}}</text>
+      </view>
+
+      <view class="total_payment_box" wx:if="{{total_payment == 0&&item.type == 1}}">
+        <!--拼团时全款购买-->
+        <text style="color:#666;">全款</text>
+        <text>￥{{item.totalPrice}}</text>
+      </view>
+
+      <view class="advance_box" wx:if="{{total_payment == 0&&item.type==0}}">
+        <text>定金</text>
+        <text>￥{{item.deal}}</text>
+      </view>
+      <view class="balance_payment_box" wx:if="{{total_payment == 0&&item.type == 0}}">
+        <text>尾款</text>
+        <text>￥{{item.totalPrice}}</text>
+      </view>
+    </view>
+
+    <view class="order_information_box" wx:if="{{submit_order==1}}">
+      <view class="order_information_title">订单信息</view>
+      <view class="order_information_message">
+        <text style="margin-right:40rpx;">订单编号</text>
+        <text>123456789</text>
+      </view>
+      <view class="order_information_message">
+        <text style="margin-right:40rpx;">下单时间</text>
+        <text>2019-11-29 12:00</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="discount_box" wx:if="{{total_payment == 0}}">
+    <view class="discount">
+      <view>优惠券</view>
+      <view class="discount_coupon_subtract" bindtap="discount">
+        <text wx:if="{{discount_coupon==1}}">-￥{{discounts}}</text>
+        <text wx:if="{{discount_coupon==0}}">添加优惠券</text>
+        <view class="img_icon" hidden="{{submit_order==1}}">
+          <image class="arrows" src="../../images/order_server/server_arrow.png"></image>
+        </view>
+      </view>
+    </view>
+
+    <view class="discount" style="margin-top:45rpx;">
+      <view>积分抵扣</view>
+      <view class="discount_coupon_subtract">
+        <text wx:if="{{integral==1&&submit_order==0}}">-￥10</text>
+        <text wx:if="{{integral==1&&integral_botton==false&&submit_order==1}}">-￥0</text>
+        <text wx:if="{{integral==1&&integral_botton == true&&submit_order==1}}">-￥10</text>
+        <text wx:if="{{integral==0}}">积分不足</text>
+        <view class="img_icon" hidden="{{submit_order==1}}" bindtap="integral_button">
+          <image class="uniterming" src="../../images/icon/uniterming.png" wx:if="{{integral_botton==false}}"></image>
+          <image class="uniterming" src="../../images/icon/app.png" wx:if="{{integral_botton==true}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="payment_box">
+    <view class="payment_six">
+      <text>应付: </text>
+      <text class="payment_money" wx:if="{{total_payment == 0}}">￥{{deal}}</text>
+      <!-- <text class="payment_money" wx:if="{{total_payment == 1}}">￥{{arr[0].totalPrice}}</text> -->
+    </view>
+    <view class="payment_four" wx:if="{{submit_order==0}}" bindtap="submit_order">提交订单</view>
+    <view class="payment_four" wx:if="{{submit_order==1}}" bindtap="payment_button">去支付</view>
+  </view>
+</view>

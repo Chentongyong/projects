@@ -1,0 +1,9 @@
+<view class="big_box">
+  <view class="rulu_titlo_box">
+    <view class="rulu_titlo">积分规则</view>
+    <view class="rulu_titlo_describe">连续签到可获得更多积分</view>
+  </view>
+  
+  <view class="rules" wx:for="{{arr}}">{{item}}</view>
+  
+</view>

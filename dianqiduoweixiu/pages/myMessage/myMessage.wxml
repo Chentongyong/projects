@@ -1,0 +1,62 @@
+<view class="big_box">
+
+  <view class="my_message_data" bindtap="click_massage" wx:for="{{list}}" wx:key="index">
+    <view class="my_message_titlo_box">
+      <image class="my_img" src="../../images/user.png"></image>
+      <view class="my_message_box">
+        <view class="my_message_name_box">
+          <view class="my_name">
+            <text>拓冠科技</text> 
+            <view wx:if="{{item.rayShow}}" class="new_message"></view>
+          </view>
+
+          <text class="my_message_time">2019-11-29</text>
+        </view>
+        <view class="my_message_text">
+          这个耐用吗？家里有老人和孕妇可以用吗？
+        </view>
+      </view>
+    </view>
+
+    <view class="message_corresponding_to_the_commodity">
+      <image class="commodity_img" src="../../images/shohin.png"></image>
+      <view class="commodity_message_box">
+        <view class="commodity_message">
+          <text class="commodity_name">制氧机3L家用吸氧机</text>
+          <text class="message_text">制氧+雾化，带雾化老人孕妇医用分子筛氧气机 3L家用制氧机</text>
+        </view>
+        <view class="commodity_prices">￥2180</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view class="my_message_data">
+    <view class="my_message_titlo_box">
+      <image class="my_img" src="../../images/user.png"></image>
+      <view class="my_message_box">
+        <view class="my_message_name_box">
+          <view class="my_name">
+            <text>拓冠科技</text> 
+            <view class="new_message"></view>
+          </view>
+          <text class="my_message_time">2019-11-29</text>
+        </view>
+        <view class="my_message_text">
+          这个耐用吗？家里有老人和孕妇可以用吗？
+        </view>
+      </view>
+    </view>
+
+    <view class="message_corresponding_to_the_commodity">
+      <image class="commodity_img" src="../../images/shohin.png"></image>
+      <view class="commodity_message_box">
+        <view class="commodity_message">
+          <text class="commodity_name">制氧机3L家用吸氧机</text>
+          <text class="message_text">制氧+雾化，带雾化老人孕妇医用分子筛氧气机 3L家用制氧机</text>
+        </view>
+        <view class="commodity_prices">￥2180</view>
+      </view>
+    </view>
+  </view> -->
+
+</view>

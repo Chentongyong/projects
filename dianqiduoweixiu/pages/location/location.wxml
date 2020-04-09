@@ -1,0 +1,36 @@
+<view class="big_box">
+  <view class="item" wx:for="{{list}}" wx:key="index" >
+    <view class="shipping_address_box" bindtap="ding" data-index="{{index}}">
+      <view class="userinfo">{{item.name}}</view>
+      <view>
+        <view class="phone">{{item.phone}}</view>
+        <view class="shipping_address_message">
+          <view>{{item.dizi}}</view>  
+        </view>
+      </view>
+    </view>
+    <view class="compile">
+      <view class="default">
+        <image class="wimg"  src="{{wimgIndex == index?img[1]:img[0]}}" bindtap="wimg" data-index="{{index}}"></image>
+        <text>默认地址</text>
+      </view>
+
+      <view class="operation">
+        <view class="operation_item" bindtap="del" data-index="{{index}}">
+          <image class="icon" src="../../images/del.png"></image>
+          <text>删除</text>
+        </view>
+        
+        <view class="operation_item" bindtap="bianji" data-index="{{index}}">
+          <image class="icon" src="../../images/bj.png"></image>
+          <text>编辑</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <view class="sbmint_box">
+    <view class="tijiao" bindtap="tanjia">添加地址</view>
+  </view>
+
+</view>

@@ -1,0 +1,53 @@
+<view class="big-box">
+  <view class="my_titlo_box">
+    <image class="bg_img" src="../../images/my-icon/bg-img.png"></image>
+    <view class="my_titlo">
+      <view class="my_titlo_head_box" bindtap="my_titlo">
+        <view class="my_titlo_text">拓冠科技</view>
+        <image class="my_titlo_img" src="../../images/my-icon/my.png"></image>
+      </view>
+      <view class="user_basic_data_box">
+        <view class="message_reminding_box">
+          <image class="message_reminding_icon" bindtap="my_message" src="../../images/home/message.png"></image>
+        </view>
+        <view class="user_basic_data">
+          <view class="user_basic_data-integral" wx:for="{{my}}" wx:key="index" bindtap="user_basic" data-index="{{index}}">
+            <text>{{item.name}}</text>
+            <text style="font-size:30rpx;color:#333;">{{item.num}}</text>
+          </view>
+        </view>
+      </view>
+    </view> 
+  </view>
+
+  <view class="my_order_box">
+    <view class="my_order_titlo_box">
+      <text class="my_order_titlo">我的订单</text>
+      <view class="my_order_more_box" bindtap="my_order">
+        <text class="my_order_more_text">查看更多</text>
+        <image class="my_order_more_img" src="../../images/my-icon/arrows.png"></image>
+      </view>
+    </view>
+
+    <view class="my_order_option_box">
+      <view class="my_order_option" wx:for="{{dind}}" wx:key="index" bindtap="dind" data-index="{{index}}">
+        <image class="my_order_option_img" src="{{item.src}}"></image>
+        <text>{{item.name}}</text>
+        <view class="hint">{{item.hint}}</view>
+      </view>
+      
+    </view>
+  </view>
+
+  <image class="recommend" bindtap="recommend" src="../../images/my-icon/banner.png"></image>
+
+  <view class="service_application_box">
+    <view class="service_application_titlo">服务应用</view>
+    <view class="service_application_data">
+      <view class="service_application" wx:for="{{list}}" wx:key="index" bindtap="serve" data-index="{{index}}">
+        <image class="my_order_option_img" src="{{item.src}}"></image>
+        <text class="my_order_option_text">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+</view>

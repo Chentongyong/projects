@@ -1,0 +1,150 @@
+.big_box{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0 30rpx 30rpx;
+  box-sizing: border-box;
+  overflow: scroll;
+}
+.inp_box{
+  width: 100%;
+  height: 106rpx;
+  display: flex;
+  align-items: center;
+}
+.items{
+  width: 110rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #333;
+  margin-right:58rpx; 
+}
+.inp{
+  width: 100%;
+  height: 100%;
+  /* display: flex; */
+  /* align-items: center; */
+  font-size: 28rpx;
+  /* color: #bbb; */
+  /* justify-content: space-between */
+}
+.inp1{
+  width: 522rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+  font-size: 28rpx;
+  /* color: #bbb; */
+  justify-content: space-between
+}
+.box{
+  margin: 40rpx 0;
+}
+.label_titlo{
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 600;
+  margin-bottom:30rpx; 
+}
+.add_label_box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.label_box{
+  width: 100%; 
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.label{
+  /* width: 140rpx; */
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  background: #F1F2F5;
+  border-radius:10rpx; 
+  color: #666666;
+  margin-right:20rpx; 
+  position: relative;
+  margin-bottom: 10rpx;
+  padding: 0 30rpx
+}
+.label2{
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  background: #129CA3;
+  border-radius:10rpx;
+  margin-right:20rpx; 
+  color: #fff;
+  position: relative;
+  margin-bottom: 10rpx;
+  padding: 0 30rpx;
+}
+.add_label{
+  width: 100%;
+  height: 106rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+}
+.add{
+  width: 90%;
+  height: 100%;
+  font-size: 28rpx;
+  margin-right: 10rpx;
+}
+.add_icon{
+  width: 34rpx;
+  height:34rpx;
+  border:1rpx solid #eee;
+
+}
+.mren{
+  width: 100%;
+  margin: 40rpx 0;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center; 
+}
+
+.submit{
+  margin-top: 220rpx;
+  width: 100%;
+  height: 88rpx;
+  background: #129CA3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+}
+.mix_icon{
+  width: 12rpx;
+  height: 22rpx;
+}
+.del_img{
+  width: 28rpx;
+  height: 28rpx;
+  position: absolute;
+  right: 0rpx;
+  top: 0rpx;
+}
+.icon{
+  font-size: 24rpx;
+  color: #129CA3;
+}

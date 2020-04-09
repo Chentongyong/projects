@@ -1,0 +1,125 @@
+.big_box{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.classify_navigation_box{
+  width: 180rpx;
+  height: 100%;
+  overflow: scroll;
+  background: #f2f2f2;
+}
+.classify_product_box{
+  width: 570rpx;
+  height: 100%; 
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.classify_navigation{
+  width: 100%;
+  height: 104rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26rpx;
+  color: #333333;
+}
+.classify_navigation_temporary{
+  width: 100%;
+  height: 104rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  position: relative;
+  font-size: 26rpx;
+  color: #333;
+}
+.classify_navigation_temporary::before{
+  content: "";
+  width:4rpx;
+  height: 24rpx;
+  background: #129CA3;
+  position: absolute;
+  left: 0;
+  top: 36rpx;
+}
+
+.classify_product_nav_box{
+  width: 100%;
+  height: 104rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.classify_product_nav{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26rpx;
+  color: #999;
+}
+.classify_product_nav_temporary{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #129CA3;
+}
+.data_list_box{
+  width: 100%;
+  height: 90%;
+  overflow: scroll;
+}
+.data{
+  width: 100%;
+  height: 260rpx;
+  display: flex;
+  padding: 40rpx 0;
+  box-sizing: border-box;
+}
+.data_list_img{
+  width: 180rpx;
+  height: 180rpx;
+}
+.data-message_box{
+  width: 330rpx;
+  height: 100%;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+.data-message_titlo{
+  font-size: 28rpx;
+  color: #333;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.data-message_synopsis{
+  font-size: 24rpx;
+  color: #999;
+}
+.data-message_price_box{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.data-message_price{
+  font-size: 30rpx;
+  color: #EB442E;
+}
+.data-message_sales{
+  font-size: 24rpx;
+  color: #999;
+}

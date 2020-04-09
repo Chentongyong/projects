@@ -1,0 +1,28 @@
+<view class="big_box">
+  <view class="my_wallet_balance_box">
+    <view class="my_aggregate_amount_box">
+      <view >总金额</view>
+      <view class="my_aggregate_amount">￥8888.88</view>
+    </view>
+    <view class="my_aggregate_amount_box2">
+      <view class="my_aggregate_amount_box">
+        <view>可提现金额</view>
+        <view class="my_aggregate_amount">￥888.88</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="integral_trial_record_box">
+    <view style="font-weight:600;">收支明细</view>
+    <view class="integral_trial_record_data" wx:for="{{usageRecord}}" wx:key="index">
+      <view class="integral_trial_record_use">
+        <text>{{item.use}}</text>
+        <text class="integral_trial_record_use_time">{{item.date}}</text>
+      </view>
+      <text>-￥{{item.usageQuantity}}</text>
+    </view>
+  </view>
+
+
+  <view class="withdraw_deposit" bindtap="withdraw_deposit">提现</view>
+</view>

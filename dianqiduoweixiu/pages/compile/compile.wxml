@@ -1,0 +1,16 @@
+<view class="big_box">
+
+  <view class="titlo">
+    <image class="titlo_img" bindtap="zheng" wx:for="{{zheng}}" src="{{item}}"></image>
+    <text>更改头像</text>
+  </view>
+
+  <view class="name">
+    <view class="name_xg">
+      <view class="appellation">昵称</view>
+      <input value="拓冠科技"></input>
+    </view>
+    <view class="submit" bindtap="submit">保存</view>
+  </view>
+
+</view>

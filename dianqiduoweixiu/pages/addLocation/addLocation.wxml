@@ -1,0 +1,87 @@
+<view class="big_box">
+  <view class="box">
+    <view class="inp_box">
+      <view class="items">收货人</view>
+      <view class="inp1">
+        <input 
+          class="inp" 
+          placeholder-style="color:#bbb;" 
+          bindinput="shouh" 
+          value="{{data.name||''}}" 
+          placeholder="请输入收货人的姓名">
+        </input>
+      </view>
+    </view>
+    <view class="inp_box">
+      <view class="items">联系方式</view>
+      <view class="inp1">
+        <input class="inp" placeholder-style="color:#bbb;" bindinput="phone" value="{{data.phone||''}}" placeholder="请输入收货人的联系方式">
+        </input>
+      </view>
+
+    </view>
+    <view class="inp_box" bindtap="add">
+      <view class="items">所在地区</view>
+      <view class="inp1">
+        <input disabled placeholder="请选择所在地区" placeholder-style="color:#bbb;" value="{{data.chiku||diqu}}"></input>
+        <image class="mix_icon" src="../../images/order_server/server_arrow.png"></image>
+      </view>
+    </view>
+    <view class="inp_box">
+      <view class="items">详细地址</view>
+      <view class="inp1">
+         <input 
+          class="inp" 
+          bindinput="inp"
+          wx:if="{{blur == 1||data.dizi ==''}}" 
+          bindblur="blur" 
+          bindinput="dizi" 
+          placeholder-style="color:#bbb;" 
+          value="{{data.dizi||''}}" 
+          placeholder="请输入详细地址">
+         </input>
+
+         <text class="inp1" bindtap="show" wx:if="{{blur == 0&&data.dizi !=''}}">{{data.dizi||''}}</text>
+      </view>
+     
+      
+      
+    </view>
+  </view>
+
+
+
+  <view class="add_label_box">
+    <view class="label_titlo">标签</view>
+    <view class="label_box">
+      <view class="{{bpianIndex == index?'label2':'label'}}" wx:for="{{bpian}}" wx:key="index" bindtap="bpian" bindlongpress="long_press" data-index="{{index}}">
+        {{item}}
+        <image class="del_img" data-index="{{index}}" src="../../images/order_server/cancel.png" wx:if="{{del == 1}}" bindtap="del"></image>
+      </view>
+    </view>
+
+    <view class="add_label">
+      <input class="add" placeholder-style="color:#bbb;" bindinput="newIcon" value="{{value}}" placeholder="请输入新的标签"></input>
+      <view class="icon" bindtap="icon">
+        添加
+      </view>
+    </view>
+
+    <view class="mren">
+      <view class="add_icon" style="margin-right: 22rpx;" bindtap="default">
+        <image class="add_icon" src="../../images/my-icon/accomplish.png" wx:if="{{default == 0}}"></image>
+      </view>
+
+      <text>默认地址</text>
+    </view>
+  </view>
+
+  <view class="submit" bindtap="submit">保存</view>
+</view>
+
+
+<van-popup show="{{ show }}" round close-on-click-overlay position="bottom" custom-style="height: 40%" bind:close="onClose">
+
+  <van-area area-list="{{ shengfen }}" bind:confirm="confirm" />
+
+</van-popup>

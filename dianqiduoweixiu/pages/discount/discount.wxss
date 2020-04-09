@@ -1,0 +1,118 @@
+.big_box{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+}
+.tab_box{
+  width: 100%;
+  height: 7%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.tab{
+  width: 25%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 26rpx;
+  color: #bbb;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+}
+.tab_color{
+  color: #129CA3;
+}
+.tab_img{
+  width: 40rpx;
+  height: 6rpx;
+  background: #129CA3;
+  border-radius: 20rpx;
+}
+.tab_img2{
+  width: 40rpx;
+  height: 6rpx;
+  /* background: #129CA3; */
+  border-radius: 20rpx;
+}
+
+.no_use{
+  width: 100%;
+  height: 8%;
+  background: #fff;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.data_list{
+  width: 100%;
+  height:93%;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  background: #f7f7f7;
+  overflow: scroll;
+}
+.data{
+  width: 100%;
+  height: 200rpx;
+  display: flex;
+  border-radius:10rpx;
+  overflow: hidden ;
+  margin-bottom:20rpx; 
+  position: relative;
+}
+.data_left{
+  width: 32%;
+  height: 100%;
+  background: #129ca3;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  font-size: 26rpx;
+  color: #fff;
+  padding: 36rpx 0;
+  box-sizing: border-box;
+}
+.data_left2{
+  width: 32%;
+  height: 100%;
+  background: #cccccc;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  font-size: 26rpx;
+  color: #fff;
+  padding: 36rpx 0;
+  box-sizing: border-box;
+}
+.data_right{
+  width: 68%;
+  height: 100%;
+  padding: 36rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  font-size: 24rpx;
+  color: #999;
+}
+.data_right_titlo{
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 600;
+}
+.state{
+  width: 84rpx;
+  height: 84rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

@@ -1,0 +1,114 @@
+.big_box{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20rpx 0 0;
+  box-sizing: border-box;
+  background: #fff;
+}
+.time{
+  width: 690rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  color: #2aa6ac;
+  font-weight: 600;
+  margin: 0 30rpx ;
+  background: #f8fcfc;
+  padding: 0 30rpx;
+  box-sizing: border-box; 
+}
+
+.data_list_box{
+  width: 100%;
+  height: 90%;
+  overflow: scroll;
+  padding-top:40rpx;
+  box-sizing: border-box; 
+}
+.data_list_box2{
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  padding:40rpx 0; 
+  box-sizing: border-box; 
+}
+.data_box{
+  width: 690rpx;
+  height: 330rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding:20rpx;
+  box-sizing: border-box;
+  background: #fff;
+  margin: 0 30rpx 20rpx;
+  box-shadow: 0 0 16px #eee;
+  border-radius: 10rpx;
+}
+.data_img_box{
+  width: 300rpx;
+  height: 300rpx;
+}
+.data_img{
+  width: 100%;
+  height:100%;
+
+}
+.data_details_box{
+  width: 350rpx;
+  height: 100%;
+
+}
+.data_details_titlo{
+  font-weight: 600;
+  font-size: 28rpx;
+  margin-top: 15rpx;
+}
+.data_details_particulars{
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 40rpx;
+}
+.market_data_box{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+  color:#999;
+  margin-bottom:20rpx; 
+}
+.price_data{
+  width: 100%;
+  height: 80rpx;
+  border-radius: 10rpx;
+  background: #fff6f4;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.price{
+  width: 60%;
+  height: 100%;
+  font-weight: 600;
+  color:#EB442E;
+  margin-left:30rpx;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.purchase{
+  width: 40%;
+  height: 100%;
+  color: #fff;
+  font-size: 24rpx;
+  background: #EB442E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

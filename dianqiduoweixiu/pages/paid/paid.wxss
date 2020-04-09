@@ -1,0 +1,58 @@
+.big_box{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 70rpx;
+  box-sizing: border-box;
+}
+.succeed_icon-box{
+  width: 100%;
+  height: 400rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 34rpx;
+  color: #333;
+  font-weight: 600;
+}
+.succeed_icon{
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 30rpx;
+}
+.order_information{
+  width: 100%;
+  height: 202rpx;
+  background: #f7f7f7;
+  border-radius: 15rpx;
+  padding: 50rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 238rpx;
+}
+.check_an_order{
+  width: 100%;
+  height:88rpx;
+  background: #129CA3;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+}
+.back_home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #129CA3;
+  font-weight: 600;
+  margin-top: 50rpx;
+}

@@ -1,0 +1,129 @@
+.big_box{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f7f7f7;
+}
+.shopping_list_box{
+  width: 100%;
+  height: 240rpx;
+  margin-top: 16rpx;
+  padding: 40rpx 30rpx;
+  box-sizing: border-box;
+  background: #fff;
+  display: flex;
+  position: relative;
+}
+.van-swipe-cell__left,
+.van-swipe-cell__right {
+  display: inline-block;
+  width: 65px;
+  height: 44px;
+  font-size: 15px;
+  line-height: 44px;
+  color: #fff;
+  text-align: center;
+  background-color: #FB5C4C;
+}
+
+.select_img_box{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right:30rpx; 
+}
+.select_img{
+  width: 38rpx;
+  height: 38rpx;
+}
+.commodity_images{
+  width: 160rpx;
+  height: 160rpx;
+  margin-right:20rpx; 
+}
+.commodity_prices_box{
+  width: 448rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.commodity_prices_titlo{
+  font-size: 28rpx;
+  color: #333;
+  
+font-weight: 900;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+
+  margin-bottom: 10rpx;
+}
+.commodity_prices_specification{
+  font-size: 24rpx;
+  color: #999;
+}
+.Price_and_quantity{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Price{
+  font-size: 28rpx;
+  color: #EB442E;
+  font-weight: 600;
+}
+.purchase_box{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 94rpx;
+  background: #fff;
+  display: flex;
+}
+.purchase_left_box{
+  width:66.66%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+}
+.check_all_box{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.purchase_right_box{
+  width: 33.33%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #EB442E;
+  color: #fff;
+}
+.select_text{
+  font-size: 28rpx;
+  color: #666;
+  margin-left:15rpx; 
+}
+.img_del{
+  width: 38rpx;
+  height: 38rpx;
+}
+.img_del_box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}

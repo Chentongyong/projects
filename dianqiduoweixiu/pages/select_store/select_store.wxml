@@ -1,0 +1,30 @@
+<!--pages/select_store/select_store.wxml-->
+<view class="main">
+  <!-- 搜索栏 -->
+  <view class="search_box">
+    <view class="input_box"  wx:if="{{inp == 0}}" bindtap="inp">
+      <image class="search_img" src="{{search_img}}" />
+      <text>请输入门店名称</text>
+    </view>
+    <view class="input_box" wx:if="{{inp == 1}}">
+      <input class="search" focus="{{inp == 1}}" placeholder="请输入门店名称" bindblur="inp"></input>
+    </view>
+  </view>
+
+
+  <view class="comment">
+    <view class="normal">
+      <view class="store_list_box" bindtap="store_list" data-index="{{index}}" wx:for="{{store}}" wx:key="index">
+        <view class="store_img_box">
+          <image class="store_img" src="{{item.src}}" />
+        </view>
+        <view class="store_intro">
+          <view class="store_name">{{item.name}}</view> 
+          <view class="store_location">{{item.location}}</view>
+          <view class="store_distance">{{item.distance}}</view>
+        </view>
+       </view>
+    </view>
+  </view>
+
+</view>

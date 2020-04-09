@@ -1,0 +1,86 @@
+<view class="big_box">
+
+  <view class="order_status">
+    <view class="order_status_titlo">
+      <view class="order_dai">顺丰快递</view>
+      <view>订单编号：625195139439653624</view>
+    </view>
+    <image class="order_status_img" src="../../images/kd.png"></image>
+  </view>
+
+  <view class="step">
+
+    <!-- <van-steps
+      steps="{{ steps }}"
+      active="{{ 1 }}"
+      active-icon="circle"
+      active-color="#000"
+      direction="vertical"
+      custom-class="ni"
+    /> -->
+
+
+    <!-- <view class="wrap">
+      <view class="addresswrap">
+        <view class="h100 flex ">
+          <view class="fb">订单信息</view>
+        </view>
+        <view class=" h50">
+          <view class="flex1 goodsname">订单编号</view>
+          <view class="goodsvalue">100000000000</view>
+        </view>
+        <view class=" h50">
+          <view class="flex1 goodsname">下单时间</view>
+          <view class="goodsvalue">2019-11-28 10:18</view>
+        </view>
+        <view class=" h50">
+          <view class="flex1 goodsname">物流公司</view>
+          <view class="goodsvalue">中通快递</view>
+        </view>
+        <view class=" h50">
+          <view class="flex1 goodsname">快递单号</view>
+          <view class="goodsvalue">ZT100000000</view>
+        </view>
+
+        <view class="opabox" wx:if="{{detail.state == 0}}">
+          <view class="flex">
+            <view class="opaone">提醒发货</view>
+          </view>
+        </view>
+
+        <view class="opabox" wx:if="{{detail.state == 1}}">
+          <view class="flex">
+            <view class="opaone colortwo">物流追踪</view>
+            <view class="opaone">确认收货</view>
+          </view>
+        </view>
+
+        <view class="opabox" wx:if="{{detail.state == 2}}">
+          <view class="flex">
+            <view class="opaone colortwo">删除订单</view>
+          </view>
+        </view>
+
+      </view>
+    </view> -->
+
+
+    <view class="logosticswrap">
+      <view class="logosticname" bindtap="wul">物流跟踪</view>
+      <view class="list" wx:for="{{list}}" wx:key="{{index}}">
+        <view class="imgbox">
+          <view class="circle {{index == 0?'declor':''}}">
+            <image class="icon" src="{{index == 0?'../../images/dd.png':'../../images/d.png'}}"></image>
+          </view>
+          <view class="line {{index == 0?'bgdeclor':''}}" hidden="{{index == 0}}"></view>
+        </view>
+        <view class="locolor">
+          <view class="pb10 {{index != 0?'c999':''}}">{{item.xx}}</view>
+          <view class="f26 pb10 {{index != 0?'c999':''}}" wx:if="{{index == 0}}">{{item.peis}}</view>
+          <view class="f22 caaa">{{item.time}}</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

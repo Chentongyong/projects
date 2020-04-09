@@ -1,0 +1,175 @@
+.big_box{
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.search{
+  width: 100%;
+  height: 6%;
+  background: #f7f7f7;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border-radius: 10rpx;
+  margin: 30rpx 0;
+}
+.search-img-box{
+  width: 8%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-img{
+  width: 38rpx;
+  height: 36rpx;
+}
+.search-inp{
+  width: 92%;
+  height: 100%;
+  font-size: 28rpx;
+}
+
+
+.hotSearch{
+
+}
+.hotSearch_titlo{
+  font-size: 30rpx;
+color: #333;
+font-weight: 900;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+
+}
+.hotSearch_data{
+  margin-top: 40rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+}
+.hotSearch_data_chunk{
+  padding:10rpx;
+  border-radius: 5rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 26rpx;
+  color: #868686;
+  background: #f3f3f3;
+}
+
+.historySearch{
+  margin-top: 40rpx;
+}
+.historySearch_titlo{
+  font-size: 30rpx;
+color: #333;
+font-weight: 900;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+
+}
+.historySearch_data{
+  margin-top: 40rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+}
+.historySearch_data_chunk{
+  padding:10rpx;
+  border-radius: 5rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 26rpx;
+  color: #868686;
+  background: #f3f3f3;
+}
+
+
+.search_dataList{
+  width: 100%;
+  height: 92%;
+  overflow: scroll;
+}
+.search_data{
+  width: 100%;
+  height: 200rpx;
+  display: flex;
+  align-items: center;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f1f1f1;
+  
+}
+.data_img_box{
+  width: 200rpx;
+  height: 200rpx;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+}
+.data_img{
+  width: 180rpx;
+  height: 200rpx;
+
+}
+.data_titlo{
+  font-size: 30rpx;
+  color: #494949;
+  margin-bottom:10rpx; 
+  
+font-weight: 900;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+
+}
+.data_particulars{
+  width: 490rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.data_describe{
+  font-size: 24rpx;
+  width: 400rpx;
+  color: #a3a3a3;
+}
+.market_data{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.data_money{
+  color: #ec5743;
+  font-size: 30rpx;
+font-weight: 900;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 1;
+-webkit-box-orient: vertical;
+
+}
+.data_sales{
+  color: #bdbdbd;
+  font-size: 24rpx;
+}

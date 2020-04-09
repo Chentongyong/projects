@@ -1,0 +1,55 @@
+<view class="big_box" wx:if="{{share == 0}}">
+  <view class="generalize">
+    <view style="font-size:50rpx;">120</view>
+    <view style="font-size:26rpx;">总推广人数</view>
+  </view>
+
+  <view class="poster" bindtap="share">
+    <image class="img" src="../../images/tu.png"></image>
+    <view class="poster_titlo_box">
+      <view class="poster_titlo">
+        <view class="titlo">分享海报</view>
+        <view>分享海报让更多人知道，轻松拿佣金</view>
+      </view>
+    </view>
+    <image class="icon" src="../../images/order_server/server_arrow.png"></image>
+  </view>
+
+
+  <view class="generalize_box">
+    <view class="titlo">我的推广</view>
+    <view class="generalize_data_box" wx:for="{{list}}">
+      <image class="generalize_img" src="../../images/user.png"></image>
+      <view class="generalize_data">
+        <view class="data_name">
+          <text>购买人名称</text>
+          <text>+￥{{item}}</text>
+        </view>
+
+        <view class="data_time">
+          <text>购买《制氧机3L家用吸氧机》</text>
+          <text>2019-10-16</text>
+        </view>
+        
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="big_box" wx:if="{{share == 1}}">
+  <view class="tu_img">
+    <image class="img_fenx" src="../../images/fenx.png"></image>
+  </view>
+
+  <view class="share_box">
+    <view class="box_fenx">
+      <image class="wx_and_pyq" src="../../images/wx.png"></image>
+      <text>分享微信</text>
+    </view>
+    <view class="box_fenx">
+      <image class="wx_and_pyq" src="../../images/pyq.png"></image>
+      <text>分享朋友圈</text>
+    </view>
+  </view>
+</view>

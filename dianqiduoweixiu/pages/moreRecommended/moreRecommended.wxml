@@ -1,0 +1,31 @@
+<view class="big_box">
+
+  <view class="time" wx:if="{{zt!=0}}">
+    <text>剩余时间</text>
+    <van-count-down time="{{ time }}" format="DD 天 HH 时 mm 分 ss 秒" />
+  </view>
+  <view class="{{zt!=0?'data_list_box':'data_list_box2'}}">
+    <view class="data_box" wx:for="{{searchData}}" wx:key="index" bindtap="data_box">
+
+      <view class="data_img_box">
+        <image class="data_img" src="{{item.src}}"></image>
+      </view>
+
+      <view class="data_details_box">
+        <view class="data_details_titlo">{{item.titlo}}</view>
+        <view class="data_details_particulars">{{item.describe}}</view>
+        <view class="market_data_box">
+          <text style="text-decoration:line-through;" wx:if="{{zt!=0}}">原价 ￥{{item.money}}</text>
+          <text style="text-decoration:line-through;" wx:if="{{zt==0}}"></text>
+          <text>销量 {{item.sales}}</text>
+        </view>
+        <view class="price_data">
+          <text class="price">￥{{item.money}}</text>
+          <text class="purchase">立即购买</text>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+</view>

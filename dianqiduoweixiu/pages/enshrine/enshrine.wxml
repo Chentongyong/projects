@@ -1,0 +1,63 @@
+<view class="big_box">
+
+  <view class="tab_box">
+    <view class="list" bindtap="sptab" wx:for="{{list}}" wx:key="index" data-index="{{index}}">
+      <text class="{{tab==index?'list2':''}}">{{item}}</text>
+      <view class="{{tab==index?'box':'box2'}}"></view>
+    </view>
+  </view>
+
+
+  <view class="search_dataList" wx:if="{{tab==0}}"> 
+
+    <view class="search_data" wx:for="{{searchData}}" wx:key="index" data-index="{{index}}" bindtap="result">
+      <view class="data_img_box">
+        <image class="data_img" src="{{item.src}}"></image>
+      </view>
+      <view class="data_particulars">
+        <view>
+          <view class="data_titlo">{{item.titlo}}</view>
+          <view class="data_describe">{{item.describe}}</view>
+        </view>
+        <view class="market_data">
+          <text class="data_money">￥{{item.money}}</text>
+          <text class="data_sales">销量 {{item.sales}}</text>
+        </view>
+      </view>
+
+    </view>
+  
+  </view>
+
+
+  <view class="information_dataList_box">
+  
+    <view class="information_data_box" wx:for="{{zonghe}}" wx:key="index">
+      <view class="information_data" bindtap="information_data">
+        <view class="information_data_titlo">{{item}}</view>
+        <view class="information_data_describe">小米公司最近出了一款好用又实惠的无人扫地机小米公司最近出了一款好用又实惠的无人扫地机小米公司最近出了一款好用又实惠的无人扫地机小米公司最近出了一款好用又实惠的无人扫地机</view>
+        <view class="information_data_operate">
+          <view class="data_operate_icon_box">
+            <van-icon name="share" size="28rpx"/>
+            <text>100</text>
+          </view>
+          <view class="data_operate_icon_box">
+            <van-icon name="good-job-o" size="28rpx;"/>
+            <text>100</text>
+          </view>
+          <view class="data_operate_icon_box">
+            <van-icon name="like-o" size="28rpx;"/>
+            <text>100</text>
+          </view>
+          <view class="data_operate_icon_box">
+            <van-icon name="eye-o" size="28rpx;"/>
+            <text>100</text>
+          </view>
+        </view>
+      </view>
+      <image class="information_data_img" src="../../images/icon/information_img.png"></image>
+    </view>
+    
+  </view>
+
+</view>

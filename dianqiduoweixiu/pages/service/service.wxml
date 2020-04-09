@@ -1,0 +1,32 @@
+<view class="big_box">
+  <view class="record_list_box" wx:for="{{list}}" wx:key="index">
+    <view class="record_list_top">
+      <view class="data_titlo_box">
+        <text class="data_titlo">{{item.name}}</text>
+        <text class="data_zt">{{item.ztname}}</text>
+      </view>
+      <view class="xinx">
+        <image class="icon" src="../../images/sj.png"></image>
+        <text class="sj">13922212186</text>
+      </view>
+      <view class="xinx">
+        <image class="icon" src="../../images/time.png"></image>
+        <text class="sj">2019-11-30 下午</text>
+      </view>
+      <view >
+        <image class="icon" src="../../images/dw.png"></image>
+        <text class="sj">广州市天河区前进街道东英商务园D栋211-212</text>
+      </view>
+    </view>
+    
+    <view class="operation">
+      <view class="operation_time">2019-10-30 12:30</view>
+      <view class="operation_but">
+        <view class="grey" bindtap="demand" data-index="{{index}}">需求描述</view>
+        <view class="green" wx:if="{{item.zt==0}}" bindtap="cancel" data-index="{{index}}">取消订单</view>
+        <view class="green" wx:if="{{item.zt==1}}">维修完成</view>
+        <view class="green" wx:if="{{item.zt==2}}">删除订单</view>
+      </view>
+    </view>
+  </view>
+</view>

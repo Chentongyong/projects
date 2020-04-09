@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-count-down": "../@vant/weapp/dist/count-down/index",
+    "van-cell": "../@vant/weapp/dist/cell/index",
+    "van-cell-group": "../@vant/weapp/dist/cell-group/index"
+  },
+  "navigationBarTitleText": "邀请好友"
+}

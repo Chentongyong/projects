@@ -1,0 +1,43 @@
+<view class="big_box">
+  <view class="information_nav_box">
+    <view class="{{navIndex==index?'information_nav_temporary':'information_nav'}}" wx:for="{{navData}}" wx:key="index" bindtap="information_nav" data-index="{{index}}">
+      <view>{{item}}</view>
+      <image 
+        wx:if="{{navIndex==index}}"
+        class="information_nav_img"
+        src="../../images/order_server/underline.png">
+      </image>
+      <view class="information_nav_img" wx:if="{{navIndex!=index}}"></view>
+    </view>
+  </view>
+
+  <view class="information_dataList_box">
+  
+    <view class="information_data_box" wx:for="{{dataList}}" wx:key="index">
+      <view class="information_data" bindtap="information_data">
+        <view class="information_data_titlo">{{item}}</view>
+        <view class="information_data_describe">小米公司最近出了一款好用又实惠的无人扫地机小米公司最近出了一款好用又实惠的无人扫地机小米公司最近出了一款好用又实惠的无人扫地机小米公司最近出了一款好用又实惠的无人扫地机</view>
+        <view class="information_data_operate">
+          <view class="data_operate_icon_box">
+            <van-icon name="share" size="28rpx"/>
+            <text>100</text>
+          </view>
+          <view class="data_operate_icon_box">
+            <van-icon name="good-job-o" size="28rpx;"/>
+            <text>100</text>
+          </view>
+          <view class="data_operate_icon_box">
+            <van-icon name="like-o" size="28rpx;"/>
+            <text>100</text>
+          </view>
+          <view class="data_operate_icon_box">
+            <van-icon name="eye-o" size="28rpx;"/>
+            <text>100</text>
+          </view>
+        </view>
+      </view>
+      <image class="information_data_img" src="../../images/icon/information_img.png"></image>
+    </view>
+    
+  </view>
+</view>

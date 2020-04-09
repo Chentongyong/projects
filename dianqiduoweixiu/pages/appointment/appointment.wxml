@@ -1,0 +1,178 @@
+<!--pages/appointment/appointment.wxml-->
+
+<!-- <view class="main" wx:if="{{showMask}}"> -->
+<view class="main">
+  <view class="select_sever">
+    <view wx:for="{{reserveData}}" bindtap="reserveTab" data-index="{{index}}" wx:key="{{index}}" class="order {{reserveTabIndex==index?'temporary':''}}">
+      {{item}}
+      <!-- <view class="underline_img"> -->
+      <image wx:if="{{reserveTabIndex==index?true:false}}" class="underline" src="{{underline}}"></image>
+      <view wx:if="{{reserveTabIndex!=index?true:false}}" class="underline"></view>
+      <!-- </view> -->
+    </view>
+
+  </view>
+
+  <view class="comment">
+    <view class="normal">
+      <view class="write_down">
+        <text>填写信息</text>
+      </view>
+      <view class="selections_box">
+        <view class="selections">
+          <text>选择电器</text>
+        </view>
+        <view class="select_content" bindtap="choice_application">
+          <input disabled="true" wx:if="{{reserveTabIndex == 0}}" placeholder="请选择订单号" value="{{electricity}}"></input>
+          <input disabled="true" wx:if="{{reserveTabIndex == 1}}" placeholder="请选择电器" value="{{electricity}}"></input>
+          <image class="arrow" src="{{arrow}}" />
+        </view>
+
+      </view>
+      <view class="selections_box">
+        <view class="selections">
+          <text>选择日期</text>
+        </view>
+        <picker mode="date" value="{{date}}" start="{{dateStart}}" end="{{dateEnd}}" bindchange="dateChange">
+          <view class="select_content1">
+            <view class="select_content_sc">
+              <input class="inp" disabled="true" placeholder="请选择服务日期" value="{{dateSelected}}"></input>
+            </view>
+
+            <image class="arrow" src="{{arrow}}" />
+          </view>
+        </picker>
+      </view>
+
+
+
+      <view class="selections_box">
+        <view class="selections">
+          <text>服务时间</text>
+        </view>
+        <view class="select_option_box">
+          <view class="moring_box" bindtap="forenoon">
+            <view class="moring_img_box">
+              <image class="moring_img" src="{{servicingTime==0?app:no_app}}" />
+            </view>
+            <view class="moring">
+              <text>上午</text>
+            </view>
+          </view>
+
+          <view class="evening_box" bindtap="afternoon">
+            <view class="evening_img_box">
+              <image class="evening_img" src="{{servicingTime==1?app:no_app}}" />
+            </view>
+            <view class="evening">
+              <text>下午</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+
+      <view class="selections_box">
+        <view class="selections">
+          <text>电话号码</text>
+        </view>
+        <view class="select_content">
+          <input type="number" placeholder="{{tel_ph}}" maxlength="11" placeholder-class="tel_ph" class="tel" bindinput="phone_num" value="{{phone_num}}"></input>
+        </view>
+      </view>
+
+
+      <view class="add_box">
+        <view class="selections_box">
+          <view class="selections">
+            <text>地址信息</text>
+          </view>
+          <view class="add_content">
+            <input placeholder="请输入地址" class="add" bindinput="site" value="{{site}}"></input>
+          </view>
+        </view>
+      </view>
+
+      <view class="descrit">
+        <view class="help_for">需求描述</view>
+        <view class="help_for_concent">
+          <textarea hidden="{{showElectric}}" placeholder="请输入" class="remark" bindinput="remark" value="{{remark}}"></textarea>
+        </view>
+
+
+        <view class="img">
+          <view class="img_preview" wx:for="{{tempFilePaths}}" bindtap="img_preview" wx:key="index" data-index="{{index}}">
+            <image class="img_preview_data" mode="aspectFill" src="{{item}}"></image>
+            <image class="del_img" src="../../images/order_server/cancel.png"></image>
+          </view>
+          <view class="img_up" bindtap="cilik_img_up" hidden="{{tempFilePaths.length==3}}">
+            <image src="../../images/order_server/img_up.png"></image>
+            <text>上传图片</text>
+          </view>
+        </view>
+
+      </view>
+
+
+    </view>
+  </view>
+  <view class="submit" bindtap="submit">
+    <text class="submit_botton">确认提交</text>
+  </view>
+</view>
+
+遮罩层
+<view class="mask" wx:if="{{showMask}}" bindtap="select_cancel"></view>
+
+<!-- 电器弹窗 -->
+<view class="electric" wx:if="{{showElectric && reserveTabIndex==0}}">
+  <view class="select">
+    <view bindtap="select_cancel">取消</view>
+    <view style="color:#109a8b;" bindtap="affirm">确定</view>
+  </view>
+
+  <view class="electric_information">
+    <view>电器名称</view>
+    <view>订单号</view>
+    <view>保修截止日</view>
+  </view>
+
+  <view class="data_box">
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 100%;" bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{appliance_list}}" class="electric_data" style="line-height: 50px">
+          <text class="appliance_list_data">{{item.name}}</text>
+          <text class="appliance_list_data">{{item.num}}</text>
+          <text class="appliance_list_data">{{item.date}}</text>
+        </view>
+      </picker-view-column>
+
+    </picker-view>
+  </view>
+</view>
+
+
+<!-- 无订单 -->
+<view class="electric" wx:if="{{showElectric && reserveTabIndex==1}}">
+  <view class="select">
+    <view bindtap="select_cancel">取消</view>
+    <view style="color:#109a8b;" bindtap="affirm">确定</view>
+  </view>
+
+  <view class="data_box">
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 100%;" bindchange="noChange">
+      <picker-view-column>
+        <view wx:for="{{appliance_list2}}" class="electric_data" style="line-height: 50px">
+          <text class="date_list_data">{{item}}</text>
+        </view>
+
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{arrlist[none_category]}}" class="electric_data" style="line-height: 50px" wx:key="index">
+          <text class="date_list_data">{{item}}</text>
+        </view>
+
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>

@@ -1,0 +1,51 @@
+<view class="big_box">
+
+  <view class="search">
+    <view class="search-img-box">
+      <image class="search-img" src="../../images/search.png"></image>
+    </view>
+    <input class="search-inp" placeholder="请输入" value="{{search_val}}" bindfocus="search_import" bindconfirm="search_start"></input>
+  </view>
+
+  <view class="hotSearch" hidden="{{search == 1}}">
+
+    <view class="hotSearch_titlo">热门搜索</view>
+
+    <view class="hotSearch_data">
+      <view class="hotSearch_data_chunk" wx:for="{{hotSearch_data}}" bindtap="recommend" data-index="{{index}}" wx:key="index">{{item}}</view>
+    </view>
+  </view>
+
+
+  <view class="historySearch" hidden="{{search==1}}">
+
+    <view class="historySearch_titlo">历史搜索</view>
+
+    <view class="historySearch_data">
+      <view class="historySearch_data_chunk" wx:for="{{history_data}}" bindtap="history" data-index="{{index}}" wx:key="index">{{item}}</view>
+    </view>
+  </view>
+
+
+  <view class="search_dataList" hidden="{{search==0}}"> 
+
+    <view class="search_data" wx:for="{{searchData}}" bindtap="result">
+      <view class="data_img_box">
+        <image class="data_img" src="{{item.src}}"></image>
+      </view>
+      <view class="data_particulars">
+        <view>
+          <view class="data_titlo">{{item.titlo}}</view>
+          <view class="data_describe">{{item.describe}}</view>
+        </view>
+        <view class="market_data">
+          <text class="data_money">￥{{item.money}}</text>
+          <text class="data_sales">销量 {{item.sales}}</text>
+        </view>
+      </view>
+
+    </view>
+  
+  </view>
+
+</view>

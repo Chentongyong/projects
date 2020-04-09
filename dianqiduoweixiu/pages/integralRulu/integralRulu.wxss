@@ -1,0 +1,32 @@
+.big_box{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+.rulu_titlo_box{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 50rpx 0;
+}
+.rulu_titlo{
+  font-size: 34rpx;
+  color: #333;
+  font-weight: 600;
+
+}
+.rulu_titlo_describe{
+  font-size: 28rpx;
+  color: #999;
+
+}
+.rules{
+  width: 100%;
+  margin-bottom: 56rpx;
+  font-size: 28rpx;
+  color: #666;
+}

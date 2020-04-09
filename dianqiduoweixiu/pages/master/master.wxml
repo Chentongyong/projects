@@ -1,0 +1,70 @@
+<view class="big_box"> 
+  <view class="box" wx:for="{{list}}">
+    <view class="inp_box">
+      <image class="fenx_img" src="../../images/tx.png"></image>
+      <text class="big_lv">填写信息</text>
+    </view>
+    <view class="inp_box">
+      <view class="items">姓名</view>
+      <input class="inp" placeholder-style="color:#BBB;" bindinput="name" placeholder="请输入您的姓名" value="{{item.name}}"></input>
+    </view>
+    <view class="inp_box">
+      <view class="items">手机号</view>
+      <input class="inp" placeholder-style="color:#BBB;" bindinput="phone" placeholder="请输入您的手机号" value="{{item.phone}}"></input>
+    </view>
+    <view class="inp_box" bindtap="add">
+      <view class="items">所在地区</view>
+      <view class="inp">
+        <input class="inp" placeholder-style="color:#BBB;"  bindinput="region" placeholder="请选择所在地区" disabled value="{{item.region}}"></input>
+        <image class="mix_icon" src="../../images/order_server/server_arrow.png"></image>
+      </view>
+    </view>
+    <view class="inp_box">
+      <view class="items">详细地址</view>
+      <input class="inp" placeholder-style="color:#BBB;"  bindinput="site"  placeholder="请输入详细地址" value="{{item.site}}" wx:if="{{submit==0}}"></input>
+      <text class="inp2" wx:if="{{submit!=0}}">{{item.site}}</text>
+    </view>
+    <view class="inp_box">
+      <view class="items">身份证号</view>
+      <input class="inp" placeholder-style="color:#BBB;"  bindinput="sfz" placeholder="请输入您的身份证号码" value="{{item.sfz}}"></input>
+    </view>
+  </view>
+  
+  <view class="identity_box">
+    <view class="inp_box">
+      <image class="fenx_img" src="../../images/xj.png"></image>
+      <text class="big_lv">上传身份证</text>
+      <text>（选填）</text>
+    </view>
+    
+    <view class="identity_img_up">
+      <image class="identity_img2" mode="widthFix" src="{{item}}" wx:if='{{zheng!=""}}' wx:for="{{zheng}}"></image>
+      <view class="identity_img" bindtap="zheng" wx:if="{{zheng==''}}">
+        <image class="sfz" src="../../images/sfzk.png"></image>
+        <text class="sfz_text">上传身份证正面</text>
+      </view>
+      <image class="identity_img2" mode="widthFix" src="{{item}}" wx:if='{{fan!=""}}' wx:for="{{fan}}"></image>
+      <view class="identity_img" bindtap="fan" wx:if="{{fan==''}}">
+        <image class="sfz" src="../../images/sfz_o.png"></image>
+        <text class="sfz_text">上传身份证反面</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="submit" wx:if="{{submit==0}}" bindtap="submit">提交申请</view>
+  <view class="submit2"  wx:if="{{submit!=0}}">等待平台线下联系</view>
+    
+</view>
+
+<van-popup
+  show="{{ show }}"
+  round
+  close-on-click-overlay
+  position="bottom"
+  custom-style="height: 40%"
+  bind:close="onClose"
+>
+
+<van-area area-list="{{ shengfen }}" bind:confirm="confirm"/>
+
+</van-popup>

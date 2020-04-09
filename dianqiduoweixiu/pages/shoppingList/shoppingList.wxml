@@ -1,0 +1,42 @@
+<view class="big_box">
+  <van-swipe-cell id="swipe-cell" right-width="{{ 65 }}" async-close bind:close="onClose" wx:for="{{list}}" wx:key="index">
+    <view class="shopping_list_box" catchtap="tiaoz">
+      <view class="select_img_box" catchtap="choice_true" data-index="{{index}}">
+        <image class="select_img" src="../../images/icon/pitch_on.png" wx:if="{{item.selected==true}}"></image>
+        <image class="select_img" src="../../images/icon/uniterming.png" wx:if="{{item.selected==false}}"></image>
+      </view>
+      <image class="commodity_images" src="{{item.image}}"></image>
+      <view class="commodity_prices_box">
+        <view>
+          <view class="commodity_prices_titlo">{{item.title}}</view>
+          <view class="commodity_prices_specification">{{item.pro_name}}</view>
+        </view>
+        <view class="Price_and_quantity" catchtap="">
+          <view class="Price">{{item.price}}</view>
+
+          <van-stepper value="{{ item.num }}" catch:change="onChange" data-index="{{index}}" />
+
+        </view>
+      </view>
+    </view>
+    <view slot="right" class="img_del_box">
+      <image class="img_del" src="../../images/icon/del.png"></image>
+    </view>
+  </van-swipe-cell>
+
+  <view class="purchase_box">
+    <view class="purchase_left_box">
+      <view class="check_all_box" bindtap="selectAll">
+        <image wx:if="{{selectAllStatus==false}}" class="select_img" src="../../images/icon/select.png"></image>
+        <image wx:if="{{selectAllStatus==true}}" class="select_img" src="../../images/icon/pitch_on.png"></image>
+        <text class="select_text">全选</text>
+      </view>
+      <view class="total_box">
+        <text class="select_text">合计:</text>
+        <text class="Price">￥{{totalPrice}}</text>
+      </view>
+    </view>
+    <view class="purchase_right_box" bindtap="settle_accounts">立即购买</view>
+  </view>
+
+</view>
