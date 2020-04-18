@@ -12,7 +12,7 @@ const wxRequest = (params, url) => {
 		});
 	}
 	let method = params.method || 'get';
-	method = method.toLocaleUpperCase();//转化成大写字母
+	method = method.toLocaleUpperCase();
 	wx.request({
 		url: app.globalData.host + url,
 		method: method,

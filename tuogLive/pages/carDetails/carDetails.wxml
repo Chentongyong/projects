@@ -9,9 +9,9 @@
     <view class="map">{{mapList.full_address}}</view>
   </view>
   <view class="address" bindtap="address" wx:if="{{mapList==''}}">
-    <view class="title">收货地址</view>
+    <view class="title">请填写您的收货地址</view>
     <view>
-      <view class="nameXx">添加地址</view>
+      <view class="nameXx map">添加地址</view>
     </view>
     <image class="addressImg" src="../../static/images/ji_right.png"></image>
   </view>

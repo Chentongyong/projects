@@ -1,6 +1,0 @@
-/* pages/store_address/store_address.wxss */
-
-@import "../address/address.wxss";
-.address_list .address_cell .address_data .link_data {
-    border-bottom: none;
-}

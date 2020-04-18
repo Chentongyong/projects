@@ -1,8 +1,0 @@
-<!--pages/outline/outline.wxml-->
-<web-view src="{{link}}" bindmessage="" wx:if="{{link != '#' && link}}"></web-view>
-
-<!-- error -->
-<view class="error" wx:if="{{!link || link == '#'}}">
-    <image mode="widthFix" src="../../static/icons/error.png"></image>
-    <view class="tips">VR展示图不存在,商家正在上传中~</view>
-</view>

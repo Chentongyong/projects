@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "van-count-down": "../@vant/weapp/dist/count-down/index"
-  },
-  "navigationBarTitleText": "订单详情"
-}

@@ -36,7 +36,7 @@ width: 20rpx;
 height: 20rpx;
 position: absolute;
 bottom: 71rpx;
-right: 80rpx;
+right: 40rpx;
 }
 .address_rightImg{
 width: 20rpx;

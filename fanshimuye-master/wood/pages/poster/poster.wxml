@@ -1,7 +1,0 @@
-<view style="height: 100%;position: absolute;">
-    <image class="img" src="{{images}}"></image>
-    <view class="button_box">
-        <view class="save bg" bindtap="postSave">保存海报</view>
-        <button class="save bg1" open-type="share">分享海报</button>
-    </view>
-</view>

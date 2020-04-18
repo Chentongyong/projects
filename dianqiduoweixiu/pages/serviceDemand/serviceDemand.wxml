@@ -1,5 +1,0 @@
-
-<view class="big_box">
-  <view class="describe">这里是需求描述这里是需求描述，这里是需求描述这里是需求描述。这里是需求描述这里是需求描述这里是需求描述。这里是需求描述这里是需求描述，这里是需求描述这里是需求描述。这里是需求描述。</view>
-  <image mode="widthFix" class="img" src="../../images/shohin.png"></image>
-</view>

@@ -1,6 +1,0 @@
-/* pages/sale_order/sale_order.wxss */
-
-@import "../order/order.wxss";
-.order {
-    padding-top: 0;
-}

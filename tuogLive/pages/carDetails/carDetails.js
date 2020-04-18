@@ -131,7 +131,7 @@ Page({
       url: '../address/address'
     })
   },
-  desc: function(e) {
+  desc: function(e) {//备注
     this.setData({
       desc: e.detail.value
     })

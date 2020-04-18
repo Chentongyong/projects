@@ -37,6 +37,7 @@ Page({
         this.datas();
     },
     clickAddress: function (e) {
+      console.log(e)
         let index = e.currentTarget.dataset.index;
         if (this.data.pay) {
             let address = this.data.addressLists[index];

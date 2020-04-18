@@ -28,7 +28,7 @@ width: 20rpx;
 height: 20rpx;
 position: absolute;
 bottom: 71rpx;
-right: 80rpx;
+right: 40rpx;
 
 }
 .address .map {
